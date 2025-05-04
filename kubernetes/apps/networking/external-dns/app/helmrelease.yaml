@@ -1,0 +1,52 @@
+---
+# yaml-language-server: $schema=https://homelab-schemas-epg.pages.dev/helm.toolkit.fluxcd.io/helmrelease_v2.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: external-dns
+spec:
+  interval: 1h
+  chartRef:
+    kind: OCIRepository
+    name: external-dns
+  maxHistory: 3
+  install:
+    disableSchemaValidation: true # Ref: https://github.com/kubernetes-sigs/external-dns/issues/5206
+    remediation:
+      retries: 3
+  upgrade:
+    disableSchemaValidation: true # Ref: https://github.com/kubernetes-sigs/external-dns/issues/5206
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    provider:
+      name: ovh
+    policy: upsert-only
+    env:
+      - name: OVH_APPLICATION_KEY
+        valueFrom:
+          secretKeyRef:
+            name: ovh-dns-api-credentials
+            key: OVH_APPLICATION_KEY
+      - name: OVH_APPLICATION_SECRET
+        valueFrom:
+          secretKeyRef:
+            name: ovh-dns-api-credentials
+            key: OVH_APPLICATION_SECRET
+      - name: OVH_CONSUMER_KEY
+        valueFrom:
+          secretKeyRef:
+            name: ovh-dns-api-credentials
+            key: OVH_CONSUMER_KEY
+    resources:
+      limits:
+        cpu: 100m
+        memory: 128Mi
+      requests:
+        cpu: 50m
+        memory: 32Mi
+    serviceMonitor:
+      enabled: true
