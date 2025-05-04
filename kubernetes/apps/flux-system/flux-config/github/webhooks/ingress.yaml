@@ -1,0 +1,26 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: flux-webhook
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    external-dns.alpha.kubernetes.io/hostname: flux-webhook.cihub.io
+    external-dns.alpha.kubernetes.io/ttl: "120"
+spec:
+  rules:
+    - host: flux-webhook.cihub.io
+      http:
+        paths:
+        - pathType: Prefix
+          path: /hook/
+          backend:
+            service:
+              name: webhook-receiver
+              port:
+                number: 80
+  tls:
+    - secretName: flux-webhook-cihub-io-tls
+      hosts:
+        - flux-webhook.cihub.io
