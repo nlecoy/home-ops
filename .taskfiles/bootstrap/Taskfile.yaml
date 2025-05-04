@@ -1,0 +1,11 @@
+---
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+version: '3'
+
+tasks:
+  default:
+    desc: Bootstrap Cluster apps
+    cmds:
+      - bash {{.SCRIPTS_DIR}}/bootstrap-cluster.sh
+    preconditions:
+      - test -f {{.SCRIPTS_DIR}}/bootstrap-cluster.sh
