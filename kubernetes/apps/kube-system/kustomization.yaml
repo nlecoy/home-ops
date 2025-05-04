@@ -9,4 +9,5 @@ resources:
   # Pre Flux-Kustomizations
   - namespace.yaml
   # Flux-Kustomizations
+  - metrics-server/install.yaml
   - reloader/install.yaml
