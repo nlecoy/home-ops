@@ -11,4 +11,4 @@ resources:
   # Flux-Kustomizations
   - echo/install.yaml
   - external-dns/install.yaml
-  - ingress-nginx/install.yaml
+  - nginx/install.yaml

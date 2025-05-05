@@ -73,7 +73,7 @@ spec:
           - port: http
     ingress:
       app:
-        className: nginx
+        className: external
         hosts:
           - host: "{{ .Release.Name }}.nlecoy.fr"
             paths:

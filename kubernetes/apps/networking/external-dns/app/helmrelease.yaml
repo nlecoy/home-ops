@@ -11,42 +11,39 @@ spec:
     name: external-dns
   maxHistory: 3
   install:
-    disableSchemaValidation: true # Ref: https://github.com/kubernetes-sigs/external-dns/issues/5206
+    crds: CreateReplace
     remediation:
       retries: 3
   upgrade:
-    disableSchemaValidation: true # Ref: https://github.com/kubernetes-sigs/external-dns/issues/5206
     cleanupOnFail: true
+    crds: CreateReplace
     remediation:
+      strategy: rollback
       retries: 3
-  uninstall:
-    keepHistory: false
   values:
+    fullnameOverride: *app
     provider:
-      name: ovh
-    policy: upsert-only
+      name: cloudflare
     env:
-      - name: OVH_APPLICATION_KEY
+      - name: &name CF_API_TOKEN
         valueFrom:
           secretKeyRef:
-            name: ovh-dns-api-credentials
-            key: OVH_APPLICATION_KEY
-      - name: OVH_APPLICATION_SECRET
-        valueFrom:
-          secretKeyRef:
-            name: ovh-dns-api-credentials
-            key: OVH_APPLICATION_SECRET
-      - name: OVH_CONSUMER_KEY
-        valueFrom:
-          secretKeyRef:
-            name: ovh-dns-api-credentials
-            key: OVH_CONSUMER_KEY
-    resources:
-      limits:
-        cpu: 100m
-        memory: 128Mi
-      requests:
-        cpu: 50m
-        memory: 32Mi
+            name: &secret external-external-dns-secret
+            key: *name
+    extraArgs:
+      - --cloudflare-dns-records-per-page=1000
+      - --cloudflare-proxied
+      - --crd-source-apiversion=externaldns.k8s.io/v1alpha1
+      - --crd-source-kind=DNSEndpoint
+      - --ignore-ingress-tls-spec
+      - --ingress-class=external
+    triggerLoopOnEvent: true
+    policy: sync
+    sources: ["crd", "ingress"]
+    txtOwnerId: default
+    txtPrefix: k8s.
+    domainFilters: ["nlecoy.fr"]
     serviceMonitor:
       enabled: true
+    podAnnotations:
+      secret.reloader.stakater.com/reload: *secret

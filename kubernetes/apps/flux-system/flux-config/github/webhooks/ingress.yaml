@@ -3,24 +3,16 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: flux-webhook
-  annotations:
-    kubernetes.io/ingress.class: nginx
-    cert-manager.io/cluster-issuer: letsencrypt-prod
-    external-dns.alpha.kubernetes.io/hostname: flux-webhook.nlecoy.fr
-    external-dns.alpha.kubernetes.io/ttl: "120"
 spec:
+  ingressClassName: external
   rules:
     - host: flux-webhook.nlecoy.fr
       http:
         paths:
-        - pathType: Prefix
-          path: /hook/
-          backend:
-            service:
-              name: webhook-receiver
-              port:
-                number: 80
-  tls:
-    - secretName: nlecoy-fr-tls
-      hosts:
-        - flux-webhook.nlecoy.fr
+          - path: /hook/
+            pathType: Prefix
+            backend:
+              service:
+                name: webhook-receiver
+                port:
+                  number: 80
