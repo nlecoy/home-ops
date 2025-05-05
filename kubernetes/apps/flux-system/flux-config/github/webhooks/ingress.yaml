@@ -6,11 +6,11 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     cert-manager.io/cluster-issuer: letsencrypt-prod
-    external-dns.alpha.kubernetes.io/hostname: flux-webhook.cihub.io
+    external-dns.alpha.kubernetes.io/hostname: flux-webhook.nlecoy.fr
     external-dns.alpha.kubernetes.io/ttl: "120"
 spec:
   rules:
-    - host: flux-webhook.cihub.io
+    - host: flux-webhook.nlecoy.fr
       http:
         paths:
         - pathType: Prefix
@@ -21,6 +21,6 @@ spec:
               port:
                 number: 80
   tls:
-    - secretName: flux-webhook-cihub-io-tls
+    - secretName: nlecoy-fr-tls
       hosts:
-        - flux-webhook.cihub.io
+        - flux-webhook.nlecoy.fr
