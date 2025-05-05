@@ -9,5 +9,6 @@ resources:
   # Pre Flux-Kustomizations
   - namespace.yaml
   # Flux-Kustomizations
+  - echo-server/install.yaml
   - external-dns/install.yaml
   - ingress-nginx/install.yaml
