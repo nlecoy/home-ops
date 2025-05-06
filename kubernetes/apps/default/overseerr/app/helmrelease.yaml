@@ -82,8 +82,10 @@ spec:
     ingress:
       app:
         className: external
+        annotations:
+          external-dns.alpha.kubernetes.io/hostname: &hostname requests.nlecoy.fr
         hosts:
-          - host: requests.nlecoy.fr
+          - host: **hostname
             paths:
               - path: /
                 service:
