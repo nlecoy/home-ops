@@ -9,4 +9,4 @@ resources:
   # Pre Flux-Kustomizations
   - namespace.yaml
   # Flux-Kustomizations
-  # - overseerr/install.yaml
+  - overseerr/install.yaml
