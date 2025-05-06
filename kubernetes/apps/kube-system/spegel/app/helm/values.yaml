@@ -5,6 +5,7 @@ serviceMonitor:
   enabled: true
 spegel:
   containerdSock: /run/k3s/containerd/containerd.sock
+  containerdRootDir: /var/lib/rancher/k3s/agent/containerd
   containerdRegistryConfigPath: /etc/cri/conf.d/hosts
 service:
   registry:
