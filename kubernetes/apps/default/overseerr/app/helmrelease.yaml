@@ -73,6 +73,12 @@ spec:
           - path: /app/config/logs
       tmp:
         type: emptyDir
+    service:
+      app:
+        controller: *app
+        ports:
+          http:
+            port: *port
     ingress:
       app:
         className: external
@@ -83,9 +89,3 @@ spec:
                 service:
                   identifier: app
                   port: http
-    service:
-      app:
-        controller: *app
-        ports:
-          http:
-            port: *port
