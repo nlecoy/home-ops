@@ -9,4 +9,4 @@ resources:
   # Pre Flux-Kustomizations
   - namespace.yaml
   # Flux-Kustomizations
-  # - cloudnative-pg/install.yaml
+  - cloudnative-pg/install.yaml
