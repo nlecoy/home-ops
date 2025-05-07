@@ -9,6 +9,7 @@ resources:
   # Pre Flux-Kustomizations
   - namespace.yaml
   # Flux-Kustomizations
+  - grafana/install.yaml
   - kromgo/install.yaml
   - kube-prometheus-stack/install.yaml
   - loki/install.yaml
