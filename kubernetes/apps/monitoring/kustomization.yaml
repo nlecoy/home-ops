@@ -14,3 +14,4 @@ resources:
   - kube-prometheus-stack/install.yaml
   - loki/install.yaml
   - promtail/install.yaml
+  - smartctl-exporter/install.yaml
