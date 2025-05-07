@@ -9,4 +9,5 @@ resources:
   # Pre Flux-Kustomizations
   - namespace.yaml
   # Flux-Kustomizations
+  - kromgo/ks.yaml
   - kube-prometheus-stack/install.yaml
