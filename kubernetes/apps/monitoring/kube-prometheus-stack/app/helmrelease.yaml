@@ -25,6 +25,7 @@ spec:
         forceConflicts: true
     cleanPrometheusOperatorObjectNames: true
     alertmanager:
+      enabled: true
       ingress:
         enabled: true
         ingressClassName: external
