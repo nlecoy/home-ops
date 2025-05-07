@@ -11,3 +11,5 @@ resources:
   # Flux-Kustomizations
   - kromgo/install.yaml
   - kube-prometheus-stack/install.yaml
+  - loki/install.yaml
+  - promtail/install.yaml
