@@ -1,0 +1,111 @@
+---
+# yaml-language-server: $schema=https://homelab-schemas-epg.pages.dev/helm.toolkit.fluxcd.io/helmrelease_v2.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: &app plex
+spec:
+  interval: 1h
+  chartRef:
+    kind: OCIRepository
+    name: app-template
+    namespace: flux-system
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      strategy: rollback
+      retries: 3
+  values:
+    controllers:
+      plex:
+        containers:
+          app:
+            image:
+              repository: ghcr.io/home-operations/plex
+              tag: 1.41.6.9685@sha256:37d36646471fb905a0080daaaa1f09ad3370b06149ed5f94dad73ead591cad0e
+            env:
+              PLEX_ADVERTISE_URL: https://{{ .Release.Name }}.nlecoy.fr:443
+              TZ: Europe/Paris
+            probes:
+              liveness: &probes
+                enabled: true
+                custom: true
+                spec:
+                  httpGet:
+                    path: /identity
+                    port: &port 32400
+                  initialDelaySeconds: 0
+                  periodSeconds: 10
+                  timeoutSeconds: 1
+                  failureThreshold: 3
+              readiness: *probes
+              startup:
+                enabled: true
+                spec:
+                  failureThreshold: 30
+                  periodSeconds: 10
+            resources:
+              requests:
+                cpu: 100m
+              limits:
+                memory: 10Gi
+            securityContext:
+              allowPrivilegeEscalation: false
+              readOnlyRootFilesystem: true
+              capabilities: { drop: ["ALL"] }
+    defaultPodOptions:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 568
+        runAsGroup: 568
+        fsGroup: 568
+        fsGroupChangePolicy: OnRootMismatch
+        supplementalGroups: [44, 65537]
+    persistence:
+      # config:
+      #   existingClaim: *app
+      # config-cache:
+      #   existingClaim: plex-cache
+      #   globalMounts:
+      #     - path: /config/Library/Application Support/Plex Media Server/Cache
+      config-logs:
+        type: emptyDir
+        globalMounts:
+          - path: /config/Library/Application Support/Plex Media Server/Logs
+      # media:
+      #   type: nfs
+      #   server: nas.internal
+      #   path: /volume1/media
+      #   globalMounts:
+      #     - readOnly: true
+      tmp:
+        type: emptyDir
+      transcode:
+        type: emptyDir
+    ingress:
+      app:
+        className: external
+        annotations:
+          nginx.ingress.kubernetes.io/backend-protocol: HTTPS
+          nginx.ingress.kubernetes.io/server-snippet: |
+            location ~ ^/library/streams {
+              proxy_set_header   Range "";
+              proxy_pass         http://plex.default.svc.cluster.local:32400;
+              proxy_http_version 1.1;
+            }
+        hosts:
+          - host: "{{ .Release.Name }}.nlecoy.fr"
+            paths:
+              - path: /
+                service:
+                  identifier: app
+                  port: http
+    service:
+      app:
+        controller: *app
+        ports:
+          http:
+            port: *port
