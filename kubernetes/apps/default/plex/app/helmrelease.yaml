@@ -56,14 +56,14 @@ spec:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: false
               capabilities: { drop: ["ALL"] }
-    defaultPodOptions:
-      securityContext:
-        runAsNonRoot: true
-        runAsUser: 568
-        runAsGroup: 568
-        fsGroup: 568
-        fsGroupChangePolicy: OnRootMismatch
-        supplementalGroups: [44, 65537]
+    # defaultPodOptions:
+    #   securityContext:
+    #     runAsNonRoot: true
+    #     runAsUser: 568
+    #     runAsGroup: 568
+    #     fsGroup: 568
+    #     fsGroupChangePolicy: OnRootMismatch
+    #     supplementalGroups: [44, 65537]
     persistence:
       config:
         existingClaim: *app
