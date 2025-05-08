@@ -25,17 +25,16 @@ spec:
         forceConflicts: true
     cleanPrometheusOperatorObjectNames: true
     alertmanager:
-      enabled: true
       ingress:
         enabled: true
         ingressClassName: external
-        hosts: ["am.nlecoy.fr"]
+        hosts: ["alertmanager.nlecoy.fr"]
       alertmanagerSpec:
         alertmanagerConfiguration:
           name: alertmanager
           global:
             resolveTimeout: 5m
-        externalUrl: https://am.nlecoy.fr
+        externalUrl: https://alertmanager.nlecoy.fr
         storage:
           volumeClaimTemplate:
             spec:
