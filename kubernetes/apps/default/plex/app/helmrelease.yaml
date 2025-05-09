@@ -69,10 +69,10 @@ spec:
         type: emptyDir
         globalMounts:
           - path: /config/Library/Application Support/Plex Media Server
-      # config-cache:
-      #   type: emptyDir
-      #   globalMounts:
-      #     - path: /config/Library/Application Support/Plex Media Server/Cache
+      config-cache:
+        type: emptyDir
+        globalMounts:
+          - path: /config/Library/Application Support/Plex Media Server/Cache
       config-logs:
         type: emptyDir
         globalMounts:
