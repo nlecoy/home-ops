@@ -4,10 +4,10 @@ kind: PersistentVolumeClaim
 metadata:
   name: plex
 spec:
-  accessModes: ["ReadWriteOnce"]
+  accessModes: ["ReadWriteMany"]
   resources:
     requests:
-      storage: 1Gi
+      storage: 100Gi
   storageClassName: local-path
 ---
 apiVersion: v1
