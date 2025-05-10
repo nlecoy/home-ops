@@ -81,10 +81,12 @@ spec:
         type: emptyDir
         globalMounts:
           - path: /config/logs
-      # media:
-      #   type: nfs
-      #   server: nas.internal
-      #   path: /volume1/media
+      media:
+        type: hostPath
+        hostPath: /srv/media
+        hostPathType: DirectoryOrCreate
+        globalMounts:
+          - path: /media
       tmp:
         type: emptyDir
     ingress:
