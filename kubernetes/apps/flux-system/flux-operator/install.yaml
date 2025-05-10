@@ -43,6 +43,8 @@ spec:
   dependsOn:
     - name: flux-operator
       namespace: flux-system
+    - name: onepassword
+      namespace: external-secrets
   prune: false # never should be deleted
   wait: false
   interval: 30m
