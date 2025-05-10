@@ -14,3 +14,12 @@ metadata:
 stringData:
   1password-credentials.json: op://HomeOps/1password/OP_CREDENTIALS_JSON
   token: op://HomeOps/1password/OP_CONNECT_TOKEN
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: github-pull-secret
+  namespace: flux-system
+stringData:
+  password: op://HomeOps/flux/FLUX_GITHUB_TOKEN
+  username: git
