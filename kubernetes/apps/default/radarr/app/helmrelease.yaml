@@ -3,7 +3,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: &app prowlarr
+  name: &app radarr
 spec:
   interval: 1h
   chartRef:
@@ -20,7 +20,7 @@ spec:
       retries: 3
   values:
     controllers:
-      prowlarr:
+      radarr:
         annotations:
           reloader.stakater.com/auto: "true"
         initContainers:
@@ -30,18 +30,18 @@ spec:
               tag: 17
             envFrom: &envFrom
               - secretRef:
-                  name: prowlarr-secret
+                  name: radarr-secret
         containers:
           app:
             image:
-              repository: ghcr.io/home-operations/prowlarr
-              tag: 1.35.1.5034@sha256:f9c4e4c7dedcbc9ec9c9616cbaacc5ca908a063b86d4f052db0e83f27c48bf3f
+              repository: ghcr.io/home-operations/radarr
+              tag: 5.23.1.9914@sha256:794fb31c2773491429cdf50906443c301c61298b1e53f1e95ccf723c30c73d3f
             env:
-              PROWLARR__APP__INSTANCENAME: Prowlarr
-              PROWLARR__APP__THEME: dark
-              PROWLARR__LOG__LEVEL: info
-              PROWLARR__SERVER__PORT: &port 9696
-              PROWLARR__UPDATE__BRANCH: develop
+              RADARR__APP__INSTANCENAME: Radarr
+              RADARR__APP__THEME: dark
+              RADARR__LOG__LEVEL: info
+              RADARR__SERVER__PORT: &port 7878
+              RADARR__UPDATE__BRANCH: develop
               TZ: Europe/Paris
             envFrom: *envFrom
             probes:
@@ -61,7 +61,7 @@ spec:
               requests:
                 cpu: 10m
               limits:
-                memory: 512Mi
+                memory: 1Gi
             securityContext:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: true
@@ -71,9 +71,20 @@ spec:
         runAsNonRoot: true
         runAsUser: 568
         runAsGroup: 568
+        fsGroup: 568
+        fsGroupChangePolicy: OnRootMismatch
+        supplementalGroups: [65536]
     persistence:
       config:
+        existingClaim: *app
+      config-logs:
         type: emptyDir
+        globalMounts:
+          - path: /config/logs
+      # media:
+      #   type: nfs
+      #   server: nas.internal
+      #   path: /volume1/media
       tmp:
         type: emptyDir
     ingress:
