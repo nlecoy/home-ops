@@ -12,3 +12,4 @@ resources:
   - overseerr/install.yaml
   - plex/install.yaml
   - prowlarr/install.yaml
+  - radarr/install.yaml
