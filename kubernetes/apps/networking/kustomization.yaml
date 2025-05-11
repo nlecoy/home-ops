@@ -12,3 +12,4 @@ resources:
   - echo/install.yaml
   - external-dns/install.yaml
   - nginx/install.yaml
+  - oauth2-proxy/install.yaml
