@@ -38,6 +38,8 @@ spec:
             env:
               SONARR__APP__INSTANCENAME: Sonarr
               SONARR__APP__THEME: dark
+              SONARR__AUTH__METHOD: External
+              SONARR__AUTH__REQUIRED: DisabledForLocalAddresses
               SONARR__LOG__LEVEL: info
               SONARR__SERVER__PORT: &port 8989
               SONARR__UPDATE__BRANCH: develop
@@ -90,6 +92,9 @@ spec:
     ingress:
       app:
         className: external
+        annotations:
+          nginx.ingress.kubernetes.io/auth-signin: https://auth.nlecoy.fr/oauth2/start?rd=https://$host$request_uri
+          nginx.ingress.kubernetes.io/auth-url: "https://auth.nlecoy.fr/oauth2/auth"
         hosts:
           - host: "{{ .Release.Name }}.nlecoy.fr"
             paths:
