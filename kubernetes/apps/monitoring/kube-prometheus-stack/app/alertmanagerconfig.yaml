@@ -14,10 +14,14 @@ spec:
     routes:
       - receiver: 'null'
         matchers:
-          - alertname =~ "InfoInhibitor|Watchdog|CPUThrottlingHigh"
+          - name: alertname
+            value: InfoInhibitor|Watchdog|CPUThrottlingHigh
+            matchType: =~
       - receiver: 'discord'
         matchers:
-          - severity =~ "critical|warning"
+          - name: severity
+            value: critical|warning
+            matchType: =~
         continue: true
   inhibitRules:
     - equal: ["alertname", "namespace"]
