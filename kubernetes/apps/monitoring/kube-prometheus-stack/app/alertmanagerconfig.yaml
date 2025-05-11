@@ -38,7 +38,7 @@ spec:
     - name: "discord"
       discordConfigs:
         - apiURL:
-            key: discord
+            key: alertmanager-secret
             name: discord-webhook-url
           title: >-
             {{ .GroupLabels.alertname }} - {{ .GroupLabels.namespace }}
