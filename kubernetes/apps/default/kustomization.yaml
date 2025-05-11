@@ -9,6 +9,7 @@ resources:
   # Pre Flux-Kustomizations
   - namespace.yaml
   # Flux-Kustomizations
+  - bazarr/install.yaml
   - overseerr/install.yaml
   - plex/install.yaml
   - prowlarr/install.yaml
