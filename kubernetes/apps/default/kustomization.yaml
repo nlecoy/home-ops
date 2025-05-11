@@ -14,3 +14,4 @@ resources:
   - prowlarr/install.yaml
   - qbittorrent/install.yaml
   - radarr/install.yaml
+  - sonarr/install.yaml
