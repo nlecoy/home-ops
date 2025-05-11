@@ -10,6 +10,7 @@ resources:
   - namespace.yaml
   # Flux-Kustomizations
   - grafana/install.yaml
+  - karma/install.yaml
   - kromgo/install.yaml
   - kube-prometheus-stack/install.yaml
   - loki/install.yaml
