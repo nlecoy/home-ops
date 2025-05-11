@@ -15,7 +15,7 @@ spec:
       - receiver: 'null'
         matchers:
           - name: alertname
-            value: InfoInhibitor|Watchdog|CPUThrottlingHigh
+            value: InfoInhibitor|Watchdog|CPUThrottlingHigh|KubeAggregatedAPIDown|KubeControllerManagerDown|KubeSchedulerDown
             matchType: =~
       - receiver: 'discord'
         matchers:
