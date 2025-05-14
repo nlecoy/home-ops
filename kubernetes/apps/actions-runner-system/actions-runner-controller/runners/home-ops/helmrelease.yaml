@@ -29,9 +29,21 @@ spec:
     remediation:
       strategy: rollback
       retries: 3
+  valuesFrom:
+    - targetPath: githubConfigSecret.github_app_id
+      kind: Secret
+      name: home-ops-runner-secret
+      valuesKey: github_app_id
+    - targetPath: githubConfigSecret.github_app_installation_id
+      kind: Secret
+      name: home-ops-runner-secret
+      valuesKey: github_app_installation_id
+    - targetPath: githubConfigSecret.github_app_private_key
+      kind: Secret
+      name: home-ops-runner-secret
+      valuesKey: github_app_private_key
   values:
     githubConfigUrl: https://github.com/nlecoy/home-ops
-    githubConfigSecret: home-ops-runner-secret
     minRunners: 1
     maxRunners: 3
     containerMode:
@@ -47,6 +59,7 @@ spec:
       namespace: actions-runner-system
     template:
       spec:
+        serviceAccountName: *app
         containers:
           - name: runner
             image: ghcr.io/home-operations/actions-runner:2.324.0@sha256:a8a54cd667ca1e12d05a3933b6c8b56dc84b35cdb1538db37a6623ef93ed789c
@@ -59,12 +72,3 @@ spec:
                 valueFrom:
                   fieldRef:
                     fieldPath: spec.nodeName
-            volumeMounts:
-              - mountPath: /var/run/secrets/talos.dev
-                name: talos
-                readOnly: true
-        serviceAccountName: *app
-        volumes:
-          - name: talos
-            secret:
-              secretName: *app
