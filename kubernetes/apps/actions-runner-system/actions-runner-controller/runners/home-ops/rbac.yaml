@@ -17,9 +17,15 @@ subjects:
     name: home-ops-runner
     namespace: actions-runner-system
 ---
-apiVersion: talos.dev/v1alpha1
-kind: ServiceAccount
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
 metadata:
   name: home-ops-runner
-spec:
-  roles: ["os:admin"]
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+  - kind: ServiceAccount
+    name: home-ops-runner
+    namespace: actions-runner-system
