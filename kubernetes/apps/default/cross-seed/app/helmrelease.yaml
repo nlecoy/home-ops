@@ -65,10 +65,14 @@ spec:
     persistence:
       config:
         existingClaim: *app
-      config-cross-seeds:
+      config-logs:
         type: emptyDir
         globalMounts:
-          - path: /config/cross-seeds
+          - path: /config/logs
+      config-torrent-cache:
+        type: emptyDir
+        globalMounts:
+          - path: /config/torrent_cache
       secret-file:
         type: secret
         name: cross-seed-secret
