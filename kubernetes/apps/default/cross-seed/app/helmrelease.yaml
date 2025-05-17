@@ -1,5 +1,5 @@
 ---
-# yaml-language-server: $schema=https://homelab-schemas-epg.pages.dev/helm.toolkit.fluxcd.io/helmrelease_v2.json
+# yaml-language-server: $schema=https://raw.githubusercontent.com/bjw-s/helm-charts/main/charts/other/app-template/schemas/helmrelease-helm-v2.schema.json
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
@@ -28,15 +28,10 @@ spec:
             image:
               repository: ghcr.io/cross-seed/cross-seed
               tag: 6.12.4@sha256:9fa95ea5f350609be385edc02fbdd7a2ac8a894e02d521fb01af42e25695d7e7
-            args:
-              - daemon
-              - -v
             env:
               CROSS_SEED_PORT: &port 2468
               TZ: Europe/Paris
-            envFrom:
-              - secretRef:
-                  name: cross-seed-secret
+            args: ["daemon"]
             probes:
               liveness: &probes
                 enabled: true
@@ -70,14 +65,10 @@ spec:
     persistence:
       config:
         existingClaim: *app
-      config-logs:
+      config-cross-seeds:
         type: emptyDir
         globalMounts:
-          - path: /config/logs
-      config-torrent-cache:
-        type: emptyDir
-        globalMounts:
-          - path: /config/torrent_cache
+          - path: /config/cross-seeds
       secret-file:
         type: secret
         name: cross-seed-secret
