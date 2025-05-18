@@ -1,0 +1,25 @@
+---
+apiVersion: clickhouse.altinity.com/v1
+kind: ClickHouseInstallation
+metadata:
+  name: clickhouse
+spec:
+  defaults:
+    templates:
+      dataVolumeClaimTemplate: clickhouse-volume
+  configuration:
+    clusters:
+      - name: clickhouse
+        layout:
+          shardsCount: 1
+          replicasCount: 1
+  templates:
+    volumeClaimTemplates:
+      - name: clickhouse-volume
+        spec:
+          storageClass: local-path
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: 20Gi
