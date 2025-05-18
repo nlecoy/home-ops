@@ -24,7 +24,8 @@ spec:
       plausible/networks/ip:
         - 10.42.0.0/16
       plausible/allow_databases/database:
-        - "plausible"
+        - plausible
+        - system
   templates:
     podTemplates:
       - name: clickhouse-server
