@@ -3,7 +3,7 @@
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
-  name: redis-operator
+  name: redis-cluster
 spec:
   interval: 1h
   url: https://ot-container-kit.github.io/helm-charts/
@@ -12,16 +12,16 @@ spec:
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: redis-operator
+  name: redis-cluster
 spec:
   interval: 1h
   chart:
     spec:
-      chart: redis-operator
-      version: 0.20.3
+      chart: redis-cluster
+      version: 0.16.4
       sourceRef:
         kind: HelmRepository
-        name: redis-operator
+        name: redis-cluster
       interval: 12h
   install:
     remediation:
@@ -31,3 +31,22 @@ spec:
     remediation:
       strategy: rollback
       retries: 3
+  values:
+    redisCluster:
+      clusterSize: 1
+      persistenceEnabled: true
+      resources:
+        requests:
+          cpu: 200m
+        limits:
+          memory: 256Mi
+      storageSpec:
+        volumeClaimTemplate:
+          spec:
+            storageClassName: local-path
+            accessModes: ["ReadWriteOnce"]
+            resources:
+              requests:
+                storage: 1Gi
+      serviceMonitor:
+        enabled: true
