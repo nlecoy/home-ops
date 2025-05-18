@@ -97,7 +97,7 @@ spec:
             paths: *paths
     service:
       app:
-        controller: *app
+        forceRename: *app
         type: LoadBalancer
         ports:
           http:
