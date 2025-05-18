@@ -44,15 +44,15 @@ spec:
           cpu: 200m
         limits:
           memory: 256Mi
-      storageSpec:
-        volumeClaimTemplate:
-          spec:
-            storageClassName: local-path
-            accessModes: ["ReadWriteOnce"]
-            resources:
-              requests:
-                storage: 1Gi
-      redisExporter:
-        enabled: true
-      serviceMonitor:
-        enabled: true
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          storageClassName: local-path
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: 1Gi
+    redisExporter:
+      enabled: true
+    serviceMonitor:
+      enabled: true
