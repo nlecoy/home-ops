@@ -72,7 +72,6 @@ spec:
                   port: http
     service:
       app:
-        controller: *app
         ports:
           http:
             port: *port

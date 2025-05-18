@@ -76,7 +76,6 @@ spec:
         type: emptyDir
     service:
       app:
-        controller: *app
         ports:
           http:
             port: *port
