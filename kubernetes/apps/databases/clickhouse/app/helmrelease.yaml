@@ -32,5 +32,6 @@ spec:
       strategy: rollback
       retries: 3
   values:
+    fullnameOverride: clickhouse-operator
     metrics:
       enabled: true
