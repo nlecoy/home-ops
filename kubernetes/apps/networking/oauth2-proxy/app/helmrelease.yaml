@@ -48,6 +48,8 @@ spec:
       pass-host-header: true
       pass-user-headers: true
       provider: github
+      redis-cluster-connection-urls: redis://redis-cluster-leader.databases.svc.cluster.local:6379
+      redis-use-cluster: true
       reverse-proxy: true
       set-xauthrequest: true
       upstream: file:///dev/null
