@@ -9,5 +9,6 @@ resources:
   # Pre Flux-Kustomizations
   - namespace.yaml
   # Flux-Kustomizations
+  - clickhouse/install.yaml
   - cloudnative-pg/install.yaml
   - redis/install.yaml
