@@ -56,3 +56,4 @@ spec:
       enabled: true
     serviceMonitor:
       enabled: true
+      namespace: databases
