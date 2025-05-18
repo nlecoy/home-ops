@@ -35,6 +35,10 @@ spec:
     redisCluster:
       clusterSize: 1
       persistenceEnabled: true
+      leader:
+        replicas: 1
+      follower:
+        replicas: 1
       resources:
         requests:
           cpu: 200m
