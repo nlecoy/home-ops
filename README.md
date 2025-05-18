@@ -59,6 +59,6 @@ This Git repository contains the following directories under [kubernetes](./kube
 
 ---
 
-## <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/2699_fe0f/512.gif" alt="⚙" width="20" height="20"> Hardware
+## Hardware
 
 I'm currently running this on a [Kimsufi](https://www.kimsufi.com/fr/) KS-3 server. The cluster isn't production-ready, as it consists of a single node running k3s. This setup is primarily for personal use—it's a playground for experimenting with Kubernetes and other technologies I enjoy working with.
