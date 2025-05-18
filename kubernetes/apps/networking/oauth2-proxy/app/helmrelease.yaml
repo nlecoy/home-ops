@@ -51,6 +51,7 @@ spec:
       redis-cluster-connection-urls: redis://redis-cluster-leader.databases.svc.cluster.local:6379
       redis-use-cluster: true
       reverse-proxy: true
+      session-store-type: redis
       set-xauthrequest: true
       upstream: file:///dev/null
       whitelist-domain: .nlecoy.fr
