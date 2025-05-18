@@ -35,6 +35,11 @@ spec:
             image:
               repository: ghcr.io/plausible/community-edition
               tag: v3.0.1@sha256:14c1afde21d6555a41fad0e8db9445d835f5722238f7d58bbc4dc8c76d7aa499
+            command:
+              - /bin/sh
+              - -x
+              - -c
+              - /entrypoint.sh db createdb && /entrypoint.sh db migrate && /entrypoint.sh run
             env:
               BASE_URL: https://analytics.nlecoy.fr
               HTTP_PORT: &port 8080
