@@ -38,6 +38,7 @@ spec:
             env:
               BASE_URL: https://analytics.nlecoy.fr
               HTTP_PORT: &port 8080
+              LISTEN_IP: 0.0.0.0
             envFrom: *envFrom
             probes:
               liveness: &probes
