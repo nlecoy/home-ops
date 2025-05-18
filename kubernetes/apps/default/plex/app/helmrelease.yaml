@@ -81,7 +81,7 @@ spec:
         hostPath: /var/media
         globalMounts:
           - path: /media
-          - readOnly: true
+            readOnly: true
       tmp:
         type: emptyDir
       transcode:
