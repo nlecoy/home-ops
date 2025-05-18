@@ -161,6 +161,9 @@ spec:
           gnetId: 19105
           revision: 7
           datasource: Prometheus
+        redis-operator:
+          url: https://raw.githubusercontent.com/OT-CONTAINER-KIT/redis-operator/refs/heads/main/dashboards/redis-operator-cluster.json
+          datasource: Prometheus
         smartctl-exporter:
           # renovate: depName="SMARTctl Exporter Dashboard"
           gnetId: 22604
