@@ -57,7 +57,7 @@ spec:
               readOnlyRootFilesystem: false
               capabilities:
                 drop: ["ALL"]
-                add: ["CHOWN"]
+                add: ["CHOWN", "SETGID"]
     defaultPodOptions:
       securityContext:
         runAsNonRoot: true
