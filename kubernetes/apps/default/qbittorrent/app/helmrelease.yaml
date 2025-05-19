@@ -53,17 +53,14 @@ spec:
               limits:
                 memory: 8Gi
             securityContext:
-              allowPrivilegeEscalation: false
+              allowPrivilegeEscalation: true
               readOnlyRootFilesystem: false
-              capabilities:
-                drop: ["ALL"]
-                add: ["CHOWN", "SETGID"]
     defaultPodOptions:
       securityContext:
-        runAsNonRoot: true
-        runAsUser: 1000
-        runAsGroup: 1000
-        fsGroup: 1000
+        runAsUser: 0
+        runAsGroup: 0
+        fsGroup: 0
+        runAsNonRoot: false
         fsGroupChangePolicy: OnRootMismatch
     persistence:
       db:
@@ -89,6 +86,10 @@ spec:
           - path: /data/downloads
       tmp:
         type: emptyDir
+      run:
+        type: emptyDir
+        globalMounts:
+          - path: /run
     ingress:
       app:
         className: external
