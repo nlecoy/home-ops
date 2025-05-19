@@ -54,8 +54,10 @@ spec:
                 memory: 8Gi
             securityContext:
               allowPrivilegeEscalation: false
-              readOnlyRootFilesystem: true
-              capabilities: { drop: ["ALL"] }
+              readOnlyRootFilesystem: false
+              capabilities:
+                drop: ["ALL"]
+                add: ["CHOWN"]
     defaultPodOptions:
       securityContext:
         runAsNonRoot: true
