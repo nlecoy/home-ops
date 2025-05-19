@@ -16,7 +16,7 @@ resources:
   - plausible/install.yaml
   - plex/install.yaml
   - prowlarr/install.yaml
-  - qbittorrent/install.yaml
+  # - qbittorrent/install.yaml
   - radarr/install.yaml
   - recyclarr/install.yaml
   - sonarr/install.yaml
