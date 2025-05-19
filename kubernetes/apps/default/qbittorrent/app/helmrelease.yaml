@@ -23,11 +23,9 @@ spec:
         containers:
           app:
             image:
-              repository: ghcr.io/home-operations/qbittorrent
-              tag: 5.1.0@sha256:fe26058628e9eb57b542204b76443b7304ed8820151d51b5c285e1828ca175a0
+              repository: ghcr.io/rogerfar/rdtclient
+              tag: 2.0.112@sha256:e62f4e055f4593748004c59a9ea8e84e7c7f6d96328c0928460695b81fd37f93
             env:
-              QBT_TORRENTING_PORT: &bittorrentPort 50413
-              QBT_WEBUI_PORT: &port 8080
               TZ: Europe/Paris
             probes:
               liveness: &probes
@@ -36,7 +34,7 @@ spec:
                 spec:
                   httpGet:
                     path: /api/v2/app/version
-                    port: *port
+                    port: &port 6500
                   initialDelaySeconds: 0
                   periodSeconds: 10
                   timeoutSeconds: 1
@@ -65,8 +63,10 @@ spec:
         fsGroupChangePolicy: OnRootMismatch
         supplementalGroups: [65536]
     persistence:
-      config:
+      db:
         existingClaim: *app
+        globalMounts:
+          - path: /data/db
       incomplete:
         type: custom
         volumeSpec:
@@ -81,10 +81,9 @@ spec:
                 volumeMode: Filesystem
       media:
         type: hostPath
-        hostPath: /var/media
+        hostPath: /var/media/downloads/torrents
         globalMounts:
-          - path: /media/downloads/torrents
-            subPath: downloads/torrents
+          - path: /data/downloads
       tmp:
         type: emptyDir
     ingress:
@@ -108,10 +107,3 @@ spec:
         ports:
           http:
             port: *port
-      bittorrent:
-        type: LoadBalancer
-        externalTrafficPolicy: Local
-        ports:
-          bittorrent-tcp:
-            port: *bittorrentPort
-            protocol: TCP
