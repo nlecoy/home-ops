@@ -26,6 +26,8 @@ spec:
               repository: ghcr.io/rogerfar/rdtclient
               tag: 2.0.112@sha256:e62f4e055f4593748004c59a9ea8e84e7c7f6d96328c0928460695b81fd37f93
             env:
+              PUID: 568
+              PGID: 568
               TZ: Europe/Paris
             probes:
               liveness: &probes
