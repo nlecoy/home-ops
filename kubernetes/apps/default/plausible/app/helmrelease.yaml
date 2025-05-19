@@ -41,7 +41,7 @@ spec:
               - -c
               - /entrypoint.sh db createdb && /entrypoint.sh db migrate && /entrypoint.sh run
             env:
-              BASE_URL: https://analytics.nlecoy.fr
+              BASE_URL: https://plausible.nlecoy.fr
               DISABLE_REGISTRATION: true
               HTTP_PORT: &port 8080
               LISTEN_IP: 0.0.0.0
@@ -80,7 +80,7 @@ spec:
       app:
         className: external
         hosts:
-          - host: analytics.nlecoy.fr
+          - host: plausible.nlecoy.fr
             paths:
               - path: /
                 service:
