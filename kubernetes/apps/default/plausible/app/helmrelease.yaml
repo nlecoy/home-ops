@@ -42,6 +42,7 @@ spec:
               - /entrypoint.sh db createdb && /entrypoint.sh db migrate && /entrypoint.sh run
             env:
               BASE_URL: https://analytics.nlecoy.fr
+              DISABLE_REGISTRATION: true
               HTTP_PORT: &port 8080
               LISTEN_IP: 0.0.0.0
             envFrom: *envFrom
@@ -78,9 +79,6 @@ spec:
     ingress:
       app:
         className: external
-        annotations:
-          nginx.ingress.kubernetes.io/auth-signin: https://auth.nlecoy.fr/oauth2/start?rd=https://$host$request_uri
-          nginx.ingress.kubernetes.io/auth-url: "https://auth.nlecoy.fr/oauth2/auth"
         hosts:
           - host: analytics.nlecoy.fr
             paths:
