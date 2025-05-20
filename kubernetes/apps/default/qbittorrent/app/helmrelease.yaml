@@ -84,7 +84,6 @@ spec:
         hostPath: /var/media/downloads/torrents
         globalMounts:
           - path: /data/downloads
-            subPath: downloads/torrents
       tmp:
         type: emptyDir
       run:
