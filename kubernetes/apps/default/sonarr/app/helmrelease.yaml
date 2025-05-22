@@ -84,7 +84,7 @@ spec:
           - path: /config/logs
       media:
         type: hostPath
-        hostPath: /data
+        hostPath: /var/data
         globalMounts:
           - path: /media
       tmp:
