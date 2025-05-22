@@ -52,11 +52,28 @@ spec:
     defaultPodOptions:
       securityContext:
         runAsNonRoot: true
-        runAsUser: 568
-        runAsGroup: 568
-        fsGroup: 568
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
         fsGroupChangePolicy: OnRootMismatch
-        supplementalGroups: [65536]
+    service:
+      app:
+        ports:
+          http:
+            port: *port
+    ingress:
+      app:
+        className: external
+        annotations:
+          nginx.ingress.kubernetes.io/auth-signin: https://auth.nlecoy.fr/oauth2/start?rd=https://$host$request_uri
+          nginx.ingress.kubernetes.io/auth-url: "https://auth.nlecoy.fr/oauth2/auth"
+        hosts:
+          - host: "{{ .Release.Name }}.nlecoy.fr"
+            paths:
+              - path: /
+                service:
+                  identifier: app
+                  port: http
     persistence:
       config:
         existingClaim: *app
@@ -75,21 +92,3 @@ spec:
           - path: /media
       tmp:
         type: emptyDir
-    ingress:
-      app:
-        className: external
-        annotations:
-          nginx.ingress.kubernetes.io/auth-signin: https://auth.nlecoy.fr/oauth2/start?rd=https://$host$request_uri
-          nginx.ingress.kubernetes.io/auth-url: "https://auth.nlecoy.fr/oauth2/auth"
-        hosts:
-          - host: "{{ .Release.Name }}.nlecoy.fr"
-            paths:
-              - path: /
-                service:
-                  identifier: app
-                  port: http
-    service:
-      app:
-        ports:
-          http:
-            port: *port
