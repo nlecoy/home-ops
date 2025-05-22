@@ -47,21 +47,43 @@ spec:
                 spec:
                   failureThreshold: 30
                   periodSeconds: 10
+            securityContext:
+              allowPrivilegeEscalation: false
+              readOnlyRootFilesystem: true
+              capabilities: { drop: ["ALL"] }
             resources:
               requests:
                 cpu: 100m
               limits:
                 memory: 8Gi
-    #         securityContext:
-    #           allowPrivilegeEscalation: true
-    #           readOnlyRootFilesystem: false
-    # defaultPodOptions:
-    #   securityContext:
-    #     runAsUser: 0
-    #     runAsGroup: 0
-    #     fsGroup: 0
-    #     runAsNonRoot: false
-    #     fsGroupChangePolicy: OnRootMismatch
+    defaultPodOptions:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+        fsGroupChangePolicy: OnRootMismatch
+    service:
+      app:
+        forceRename: *app
+        ports:
+          http:
+            port: *port
+    ingress:
+      app:
+        className: external
+        annotations:
+          nginx.ingress.kubernetes.io/auth-signin: https://auth.nlecoy.fr/oauth2/start?rd=https://$host$request_uri
+          nginx.ingress.kubernetes.io/auth-url: "https://auth.nlecoy.fr/oauth2/auth"
+        hosts:
+          - host: "{{ .Release.Name }}.nlecoy.fr"
+            paths: &paths
+              - path: /
+                service:
+                  identifier: app
+                  port: http
+          - host: qb.nlecoy.fr
+            paths: *paths
     persistence:
       db:
         existingClaim: *app
@@ -81,7 +103,7 @@ spec:
                 volumeMode: Filesystem
       media:
         type: hostPath
-        hostPath: /var/data/torrents
+        hostPath: /var/media/downloads
         globalMounts:
           - path: /data/downloads
       tmp:
@@ -90,24 +112,3 @@ spec:
         type: emptyDir
         globalMounts:
           - path: /run
-    ingress:
-      app:
-        className: external
-        annotations:
-          nginx.ingress.kubernetes.io/auth-signin: https://auth.nlecoy.fr/oauth2/start?rd=https://$host$request_uri
-          nginx.ingress.kubernetes.io/auth-url: "https://auth.nlecoy.fr/oauth2/auth"
-        hosts:
-          - host: "{{ .Release.Name }}.nlecoy.fr"
-            paths: &paths
-              - path: /
-                service:
-                  identifier: app
-                  port: http
-          - host: qb.nlecoy.fr
-            paths: *paths
-    service:
-      app:
-        forceRename: *app
-        ports:
-          http:
-            port: *port
