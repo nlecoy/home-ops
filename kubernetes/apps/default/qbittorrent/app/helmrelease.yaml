@@ -81,7 +81,7 @@ spec:
                 volumeMode: Filesystem
       media:
         type: hostPath
-        hostPath: /data/torrents
+        hostPath: /var/data/torrents
         globalMounts:
           - path: /data/downloads
       tmp:
