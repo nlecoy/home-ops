@@ -86,7 +86,7 @@ spec:
         type: hostPath
         hostPath: /var/data
         globalMounts:
-          - path: /media
+          - path: /data
       tmp:
         type: emptyDir
     ingress:
