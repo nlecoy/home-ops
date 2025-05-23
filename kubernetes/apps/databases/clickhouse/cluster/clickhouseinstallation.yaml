@@ -32,7 +32,7 @@ spec:
         spec:
           containers:
             - name: clickhouse-pod
-              image: clickhouse/clickhouse-server:25.4
+              image: clickhouse/clickhouse-server:25.5
     volumeClaimTemplates:
       - name: clickhouse-volume
         spec:
