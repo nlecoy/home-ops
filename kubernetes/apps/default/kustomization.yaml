@@ -18,3 +18,4 @@ resources:
   - radarr/install.yaml
   - recyclarr/install.yaml
   - sonarr/install.yaml
+  - tautulli/install.yaml
