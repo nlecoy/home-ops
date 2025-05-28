@@ -13,7 +13,6 @@ resources:
   - jellyfin/install.yaml
   - jellyseerr/install.yaml
   - plausible/install.yaml
-  - plex/install.yaml
   - prowlarr/install.yaml
   - qbittorrent/install.yaml
   - radarr/install.yaml
