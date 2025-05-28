@@ -11,7 +11,7 @@ resources:
   # Flux-Kustomizations
   - bazarr/install.yaml
   - jellyfin/install.yaml
-  - overseerr/install.yaml
+  - jellyseerr/install.yaml
   - plausible/install.yaml
   - plex/install.yaml
   - prowlarr/install.yaml
