@@ -23,3 +23,5 @@ spec:
     fullnameOverride: clickhouse-operator
     metrics:
       enabled: true
+    serviceMonitor:
+      enabled: true
