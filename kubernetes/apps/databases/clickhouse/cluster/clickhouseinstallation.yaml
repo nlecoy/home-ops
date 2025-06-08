@@ -22,7 +22,7 @@ spec:
               key: cihub-password
         # to allow access outside from kubernetes
         cihub/networks/ip:
-          - 10.42.0.0/16
+          - 0.0.0.0/0
         cihub/allow_databases/database:
           - cihub
           - system
@@ -33,7 +33,7 @@ spec:
             key: plausible-password
       # to allow access outside from kubernetes
       plausible/networks/ip:
-        - 10.42.0.0/16
+        - 0.0.0.0/0
       plausible/allow_databases/database:
         - plausible
         - system
