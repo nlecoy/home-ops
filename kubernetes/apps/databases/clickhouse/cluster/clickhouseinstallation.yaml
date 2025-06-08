@@ -20,12 +20,12 @@ spec:
             secretKeyRef:
               name: clickhouse-credentials
               key: cihub-password
-        # to allow access outside from kubernetes
-        cihub/networks/ip:
-          - 0.0.0.0/0
-        cihub/allow_databases/database:
-          - cihub
-          - system
+      # to allow access outside from kubernetes
+      cihub/networks/ip:
+        - 0.0.0.0/0
+      cihub/allow_databases/database:
+        - cihub
+        - system
       plausible/password:
         valueFrom:
           secretKeyRef:
