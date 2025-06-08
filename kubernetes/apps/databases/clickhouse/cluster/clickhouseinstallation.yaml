@@ -15,6 +15,17 @@ spec:
           shardsCount: 1
           replicasCount: 1
     users:
+      cihub/password:
+        valueFrom:
+            secretKeyRef:
+              name: clickhouse-credentials
+              key: cihub-password
+        # to allow access outside from kubernetes
+        plausible/networks/ip:
+          - 10.42.0.0/16
+        plausible/allow_databases/database:
+          - cihub
+          - system
       plausible/password:
         valueFrom:
           secretKeyRef:

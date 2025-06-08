@@ -28,7 +28,7 @@ spec:
               repository: getcihub/cihub
               tag: v0.1.0@sha256:d343957d0f4fb2f2d9774ef1a75b6498b5827cfc9de4cc4fd505fe8b8b7310ca
             env:
-              CIHUB_CLICKHOUSE_DATABASE: default
+              CIHUB_CLICKHOUSE_DATABASE: cihub
             envFrom:
               - secretRef:
                   name: cihub-secret
