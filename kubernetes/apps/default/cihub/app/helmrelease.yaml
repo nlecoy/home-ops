@@ -19,14 +19,16 @@ spec:
       retries: 3
   values:
     controllers:
-      autobrr:
+      cihub:
+        replicas: 2
+        strategy: RollingUpdate
         annotations:
           reloader.stakater.com/auto: "true"
         containers:
           app:
             image:
               repository: getcihub/cihub
-              tag: v0.1.0@sha256:d343957d0f4fb2f2d9774ef1a75b6498b5827cfc9de4cc4fd505fe8b8b7310ca
+              tag: v0.2.0@sha256:e5a82164f349114286db85528b3aac2a2754dc747a02cd2ce812012cbce3ce18
             env:
               CIHUB_CLICKHOUSE_DATABASE: cihub
             envFrom:
