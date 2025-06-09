@@ -28,7 +28,7 @@ spec:
           app:
             image:
               repository: getcihub/cihub
-              tag: v0.2.1@sha256:6c44830473a287f1183fbe4c669ae2f47ed02d13a68e3f06e348406e192dbce5
+              tag: v0.2.2@sha256:1d8ffc8dc24e700bf90a9c4c54b23258a6f21f0d147a88efa4577a809ad8c7ee
             env:
               CIHUB_CLICKHOUSE_DATABASE: cihub
             envFrom:
