@@ -3,7 +3,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: &app cihub
+  name: cihub
 spec:
   interval: 1h
   chartRef:
@@ -28,7 +28,7 @@ spec:
           app:
             image:
               repository: getcihub/cihub
-              tag: v0.2.0@sha256:e5a82164f349114286db85528b3aac2a2754dc747a02cd2ce812012cbce3ce18
+              tag: v0.2.1@sha256:6c44830473a287f1183fbe4c669ae2f47ed02d13a68e3f06e348406e192dbce5
             env:
               CIHUB_CLICKHOUSE_DATABASE: cihub
             envFrom:
