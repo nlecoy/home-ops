@@ -61,4 +61,4 @@ This Git repository contains the following directories under [kubernetes](./kube
 
 ## Hardware
 
-I'm currently running this on a [Kimsufi](https://www.kimsufi.com/fr/) KS-3 server. The cluster isn't production-ready, as it consists of a single node running k3s. This setup is primarily for personal use—it's a playground for experimenting with Kubernetes and other technologies I enjoy working with.
+I'm currently running this on a [Kimsufi](https://www.kimsufi.com/fr/) KS-2 server. The cluster isn't production-ready, as it consists of a single node running k3s. This setup is primarily for personal use—it's a playground for experimenting with Kubernetes and other technologies I enjoy working with.
