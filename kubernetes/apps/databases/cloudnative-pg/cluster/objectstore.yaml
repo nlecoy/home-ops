@@ -7,7 +7,7 @@ spec:
   configuration:
     data:
       compression: bzip2
-      destinationPath: s3://home-ops/
+    destinationPath: s3://home-ops/
     endpointURL: https://f50d5c6200c83891d524a84c398660d6.r2.cloudflarestorage.com
     s3Credentials:
       accessKeyId:
