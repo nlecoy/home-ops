@@ -1,0 +1,30 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/observability.giantswarm.io/silence_v1alpha2.json
+apiVersion: observability.giantswarm.io/v1alpha2
+kind: Silence
+metadata:
+  name: kube-controller-manager-down
+spec:
+  matchers:
+    - name: alertname
+      value: KubeControllerManagerDown
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/observability.giantswarm.io/silence_v1alpha2.json
+apiVersion: observability.giantswarm.io/v1alpha2
+kind: Silence
+metadata:
+  name: kube-scheduler-down
+spec:
+  matchers:
+    - name: alertname
+      value: KubeSchedulerDown
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/observability.giantswarm.io/silence_v1alpha2.json
+apiVersion: observability.giantswarm.io/v1alpha2
+kind: Silence
+metadata:
+  name: kube-aggregated-api-down
+spec:
+  matchers:
+    - name: alertname
+      value: KubeAggregatedAPIDown
