@@ -15,4 +15,5 @@ resources:
   - kromgo/install.yaml
   - kube-prometheus-stack/install.yaml
   - loki/install.yaml
+  - silence-operator/install.yaml
   - smartctl-exporter/install.yaml
