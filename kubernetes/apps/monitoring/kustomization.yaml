@@ -9,10 +9,10 @@ resources:
   # Pre Flux-Kustomizations
   - namespace.yaml
   # Flux-Kustomizations
+  - alloy/install.yaml
   - grafana/install.yaml
   - karma/install.yaml
   - kromgo/install.yaml
   - kube-prometheus-stack/install.yaml
   - loki/install.yaml
-  - promtail/install.yaml
   - smartctl-exporter/install.yaml
