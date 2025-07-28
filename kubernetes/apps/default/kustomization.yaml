@@ -10,10 +10,10 @@ resources:
   - namespace.yaml
   # Flux-Kustomizations
   - bazarr/install.yaml
-  - cihub/install.yaml
+  # - cihub/install.yaml
   - jellyfin/install.yaml
   - jellyseerr/install.yaml
-  - plausible/install.yaml
+  # - plausible/install.yaml
   - prowlarr/install.yaml
   - qbittorrent/install.yaml
   - radarr/install.yaml
