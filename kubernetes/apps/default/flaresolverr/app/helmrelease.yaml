@@ -27,19 +27,19 @@ spec:
             image:
               repository: ghcr.io/flaresolverr/flaresolverr
               tag: v3.3.25@sha256:68160ec125e5cde23bc45549a443da0da0223cf4f0de7571ed2c6851cf6e1561
-            # probes:
-            #   liveness: &probes
-            #     enabled: true
-            #     custom: true
-            #     spec:
-            #       httpGet:
-            #         path: /v1
-            #         port: &port 8191
-            #       initialDelaySeconds: 0
-            #       periodSeconds: 10
-            #       timeoutSeconds: 1
-            #       failureThreshold: 3
-            #   readiness: *probes
+            probes:
+              liveness: &probes
+                enabled: true
+                custom: true
+                spec:
+                  httpGet:
+                    path: /v1
+                    port: &port 8191
+                  initialDelaySeconds: 0
+                  periodSeconds: 10
+                  timeoutSeconds: 1
+                  failureThreshold: 3
+              readiness: *probes
             resources:
               requests:
                 cpu: 15m
@@ -61,3 +61,6 @@ spec:
         ports:
           http:
             port: *port
+    persistence:
+      tmp:
+        type: emptyDir
