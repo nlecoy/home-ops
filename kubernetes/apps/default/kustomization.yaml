@@ -10,7 +10,6 @@ resources:
   - namespace.yaml
   # Flux-Kustomizations
   - bazarr/install.yaml
-  - flaresolverr/install.yaml
   - jellyfin/install.yaml
   - jellyseerr/install.yaml
   - prowlarr/install.yaml
