@@ -32,7 +32,7 @@ spec:
             args:
               - server
               - --dir
-              - /books
+              - /media
               - --port
               - "8080"
               - --name
