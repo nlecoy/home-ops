@@ -37,10 +37,6 @@ spec:
               - "8080"
               - --name
               - ronwood
-              - --useragent
-              - "HexChat 2.9.1"
-              - --searchbot
-              - searchook
             env:
               TZ: Europe/Paris
     defaultPodOptions:
