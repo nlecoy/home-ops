@@ -31,8 +31,8 @@ spec:
               tag: v0.7.1@sha256:d8fca4ff9b696abc4ca019c76fa629c39e844e4d9435f4afac87a97b1eeae152
             env:
               PROMETHEUS_URL: http://prometheus-operated.monitoring.svc.cluster.local:9090
-              HEALTH_PORT: &healthPort 8888
-              SERVER_PORT: &port 8080
+              HEALTH_PORT: &healthPort 8080
+              SERVER_PORT: &port 80
             probes:
               liveness: &probes
                 enabled: true
@@ -58,8 +58,8 @@ spec:
     defaultPodOptions:
       securityContext:
         runAsNonRoot: true
-        runAsUser: 568
-        runAsGroup: 568
+        runAsUser: 1000
+        runAsGroup: 1000
     ingress:
       app:
         className: external
