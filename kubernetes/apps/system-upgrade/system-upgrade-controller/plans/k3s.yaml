@@ -6,7 +6,6 @@ metadata:
   name: k3s
 spec:
   concurrency: 1
-  cordon: true
   exclusive: true
   nodeSelector:
     matchExpressions:
