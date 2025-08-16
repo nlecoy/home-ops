@@ -61,7 +61,7 @@ spec:
         runAsGroup: 1000
         fsGroup: 1000
         fsGroupChangePolicy: OnRootMismatch
-        supplementalGroups: [44]
+        supplementalGroups: [44, 65537]
     service:
       app:
         ports:
@@ -70,6 +70,14 @@ spec:
     ingress:
       app:
         className: external
+        annotations:
+          nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+          nginx.ingress.kubernetes.io/server-snippet: |
+            location ~ ^/library/streams {
+              proxy_set_header        Range "";
+              proxy_pass              http://plex.default.svc.cluster.local:32400;
+              proxy_http_version      1.1;
+            }
         hosts:
           - host: "{{ .Release.Name }}.nlecoy.fr"
             paths:
