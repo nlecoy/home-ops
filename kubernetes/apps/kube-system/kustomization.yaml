@@ -7,9 +7,10 @@ components:
   - ../../components/common
 resources:
   # Pre Flux-Kustomizations
-  - namespace.yaml
+  - ./namespace.yaml
   # Flux-Kustomizations
-  - descheduler/install.yaml
-  - metrics-server/install.yaml
-  - reloader/install.yaml
-  - spegel/install.yaml
+  - ./descheduler/install.yaml
+  - ./gateway-api-crds/install.yaml
+  - ./metrics-server/install.yaml
+  - ./reloader/install.yaml
+  - ./spegel/install.yaml
