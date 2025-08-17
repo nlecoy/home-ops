@@ -29,6 +29,19 @@ spec:
               TZ: Europe/Paris
               LANG: en_US
               LOG_LEVEL: info
+            probes:
+              liveness: &probes
+                enabled: true
+                custom: true
+                spec:
+                  httpGet:
+                    path: /
+                    port: &port 8191
+                  initialDelaySeconds: 0
+                  periodSeconds: 10
+                  timeoutSeconds: 1
+                  failureThreshold: 3
+              readiness: *probes
             resources:
               requests:
                 cpu: 10m
@@ -39,4 +52,4 @@ spec:
       app:
         ports:
           http:
-            port: 8191
+            port: *port
