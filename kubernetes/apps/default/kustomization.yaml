@@ -9,13 +9,14 @@ resources:
   # Pre Flux-Kustomizations
   - namespace.yaml
   # Flux-Kustomizations
-  - bazarr/install.yaml
-  - jellyfin/install.yaml
-  - jellyseerr/install.yaml
-  - openbooks/install.yaml
-  - plex/install.yaml
-  - prowlarr/install.yaml
-  - qbittorrent/install.yaml
-  - radarr/install.yaml
-  - recyclarr/install.yaml
-  - sonarr/install.yaml
+  - ./bazarr/install.yaml
+  - ./flaresolverr/install.yaml
+  - ./jellyfin/install.yaml
+  - ./jellyseerr/install.yaml
+  - ./openbooks/install.yaml
+  - ./plex/install.yaml
+  - ./prowlarr/install.yaml
+  - ./qbittorrent/install.yaml
+  - ./radarr/install.yaml
+  - ./recyclarr/install.yaml
+  - ./sonarr/install.yaml
