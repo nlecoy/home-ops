@@ -9,6 +9,7 @@ resources:
   # Pre Flux-Kustomizations
   - ./namespace.yaml
   # Flux-Kustomizations
+  - ./coredns/install.yaml
   - ./descheduler/install.yaml
   - ./gateway-api-crds/install.yaml
   - ./metrics-server/install.yaml
