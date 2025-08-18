@@ -76,7 +76,7 @@ spec:
                   identifier: app
                   port: http
     persistence:
-      data:
+      config:
         existingClaim: maintainerr
         globalMounts:
           - path: /opt/data
