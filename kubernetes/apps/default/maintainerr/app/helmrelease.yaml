@@ -77,7 +77,6 @@ spec:
                   port: http
     persistence:
       data:
-        type: persistentVolumeClaim
-        size: 1Gi
+        existingClaim: maintainerr
         globalMounts:
           - path: /opt/data
