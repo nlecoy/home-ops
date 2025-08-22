@@ -15,7 +15,7 @@ spec:
   path: ./kubernetes/apps/default/jellyseerr/app
   postBuild:
     substitute:
-      APP: request
+      APP: requests
   prune: true
   retryInterval: 2m
   sourceRef:
