@@ -9,6 +9,7 @@ resources:
   # Pre Flux-Kustomizations
   - namespace.yaml
   # Flux-Kustomizations
+  - ./babybuddy/install.yaml
   - ./bazarr/install.yaml
   - ./flaresolverr/install.yaml
   - ./jellyfin/install.yaml
