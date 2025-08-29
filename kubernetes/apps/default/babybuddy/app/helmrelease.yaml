@@ -37,6 +37,8 @@ spec:
               tag: 2.7.1@sha256:19ce82779238326c16de0d379f1980904e9c6b331504a6c92d8b80fc3406b29c
             env:
               DEBUG: false
+              PUID: 1000
+              PGID: 1000
               TZ: Europe/Paris
             envFrom: *envFrom
             probes:
@@ -61,13 +63,6 @@ spec:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: true
               capabilities: { drop: ["ALL"] }
-    defaultPodOptions:
-      securityContext:
-        runAsNonRoot: true
-        runAsUser: 1000
-        runAsGroup: 1000
-        fsGroup: 1000
-        fsGroupChangePolicy: OnRootMismatch
     service:
       app:
         ports:
