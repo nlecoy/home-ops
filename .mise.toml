@@ -2,7 +2,7 @@
 KUBECONFIG = "{{config_root}}/kubeconfig"
 
 [tools]
-"aqua:casey/just" = "1.42.3"
+"aqua:casey/just" = "1.42.4"
 "aqua:fluxcd/flux2" = "2.6.4"
 "aqua:helmfile/helmfile" = "1.1.5"
 "aqua:jqlang/jq" = "1.8.1"
