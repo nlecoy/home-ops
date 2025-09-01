@@ -35,7 +35,7 @@ spec:
     alertmanager:
       ingress:
         enabled: true
-        ingressclassName: nginx
+        ingressClassName: nginx
         hosts:
           - "alertmanager.nlecoy.fr"
         annotations:
@@ -63,7 +63,7 @@ spec:
     prometheus:
       ingress:
         enabled: true
-        ingressclassName: nginx
+        ingressClassName: nginx
         hosts:
           - "prometheus.nlecoy.fr"
         annotations:
