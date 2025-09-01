@@ -7,7 +7,7 @@ components:
   - ../../components/common
 resources:
   # Pre Flux-Kustomizations
-  - namespace.yaml
+  - ./namespace.yaml
   # Flux-Kustomizations
-  - flux-operator/install.yaml
-  - flux-config/install.yaml
+  - ./flux-instance/install.yaml
+  - ./flux-operator/install.yaml
