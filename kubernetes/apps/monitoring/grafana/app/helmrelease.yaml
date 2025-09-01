@@ -44,9 +44,9 @@ spec:
       datasources.yaml:
         apiVersion: 1
         deleteDatasources:
-          - { name: Alertmanager, orgId: 1 }
-          - { name: Loki, orgId: 1 }
-          - { name: Prometheus, orgId: 1 }
+          - {name: Alertmanager, orgId: 1}
+          - {name: Loki, orgId: 1}
+          - {name: Prometheus, orgId: 1}
         datasources:
           - name: Alertmanager
             type: alertmanager
@@ -101,7 +101,8 @@ spec:
           # renovate: depName="External Secrets"
           gnetId: 21640
           revision: 4
-          datasource: [{ name: DS_METRICS, value: Prometheus }]
+          datasource:
+            - {name: DS_METRICS, value: Prometheus}
         flux-cluster:
           url: https://raw.githubusercontent.com/fluxcd/flux2-monitoring-example/main/monitoring/configs/dashboards/cluster.json
           datasource: Prometheus
@@ -155,7 +156,8 @@ spec:
           # renovate: depName="Node Exporter Full"
           gnetId: 1860
           revision: 41
-          datasource: [{ name: DS_PROMETHEUS, value: Prometheus }]
+          datasource:
+            - {name: DS_PROMETHEUS, value: Prometheus}
         prometheus:
           # renovate: depName="Prometheus"
           gnetId: 19105
@@ -168,7 +170,8 @@ spec:
           # renovate: depName="SMARTctl Exporter Dashboard"
           gnetId: 22604
           revision: 2
-          datasource: [{ name: DS_PROMETHEUS, value: Prometheus }]
+          datasource:
+            - {name: DS_PROMETHEUS, value: Prometheus}
     sidecar:
       dashboards:
         enabled: true
@@ -195,11 +198,12 @@ spec:
       enabled: true
     ingress:
       enabled: true
-      ingressClassName: external
+      ingressclassName: nginx
       annotations:
         nginx.ingress.kubernetes.io/auth-signin: https://auth.nlecoy.fr/oauth2/start?rd=https://$host$request_uri
         nginx.ingress.kubernetes.io/auth-url: "https://auth.nlecoy.fr/oauth2/auth"
-      hosts: ["{{ .Release.Name }}.nlecoy.fr"]
+      hosts:
+        - "{{ .Release.Name }}.nlecoy.fr"
     persistence:
       enabled: false
     testFramework:

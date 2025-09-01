@@ -42,6 +42,6 @@ spec:
       whitelist-domain: .nlecoy.fr
     ingress:
       enabled: true
-      className: external
+      className: nginx
       hosts:
         - auth.nlecoy.fr

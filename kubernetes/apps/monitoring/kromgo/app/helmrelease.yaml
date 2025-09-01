@@ -54,7 +54,7 @@ spec:
             securityContext:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: true
-              capabilities: { drop: ["ALL"] }
+              capabilities: {drop: ["ALL"]}
     defaultPodOptions:
       securityContext:
         runAsNonRoot: true
@@ -62,7 +62,7 @@ spec:
         runAsGroup: 1000
     ingress:
       app:
-        className: external
+        className: nginx
         hosts:
           - host: "{{ .Release.Name }}.nlecoy.fr"
             paths:

@@ -4,7 +4,7 @@ kind: Ingress
 metadata:
   name: flux-webhook
 spec:
-  ingressClassName: external
+  ingressclassName: nginx
   rules:
     - host: flux-webhook.nlecoy.fr
       http:

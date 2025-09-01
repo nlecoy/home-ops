@@ -60,7 +60,7 @@ spec:
             port: *port
     ingress:
       app:
-        className: external
+        className: nginx
         annotations:
           nginx.ingress.kubernetes.io/auth-signin: https://auth.nlecoy.fr/oauth2/start?rd=https://$host$request_uri
           nginx.ingress.kubernetes.io/auth-url: "https://auth.nlecoy.fr/oauth2/auth"
@@ -84,7 +84,8 @@ spec:
           ephemeral:
             volumeClaimTemplate:
               spec:
-                accessModes: [ReadWriteOnce]
+                accessModes:
+                  - ReadWriteOnce
                 resources:
                   requests:
                     storage: 1Mi # Ignored
