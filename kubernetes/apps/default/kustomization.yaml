@@ -17,6 +17,7 @@ resources:
   - ./openbooks/install.yaml
   - ./prowlarr/install.yaml
   - ./qbittorrent/install.yaml
+  - ./qui/install.yaml
   - ./radarr/install.yaml
   - ./recyclarr/install.yaml
   - ./sonarr/install.yaml
