@@ -3,9 +3,8 @@
 set quiet := true
 set shell := ['bash', '-euo', 'pipefail', '-c']
 
-mod bootstrap '.just/bootstrap.just'
-mod kube '.just/kube.just'
-mod sync '.just/sync.just'
+mod bootstrap
+mod kubernetes
 
 [private]
 default:
