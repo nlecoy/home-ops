@@ -7,9 +7,9 @@ components:
   - ../../components/common
 resources:
   # Pre Flux-Kustomizations
-  - namespace.yaml
+  - ./namespace.yaml
   # Flux-Kustomizations
-  - echo/install.yaml
-  - external-dns/install.yaml
-  - nginx/install.yaml
-  - oauth2-proxy/install.yaml
+  - ./echo/install.yaml
+  - ./external-dns/install.yaml
+  - ./nginx/install.yaml
+  - ./oauth2-proxy/install.yaml
