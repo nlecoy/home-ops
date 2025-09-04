@@ -25,7 +25,7 @@ spec:
       interval: 12h
   install:
     remediation:
-      retries: 3
+      retries: -1
   upgrade:
     cleanupOnFail: true
     remediation:
@@ -48,7 +48,8 @@ spec:
       volumeClaimTemplate:
         spec:
           storageClassName: local-path
-          accessModes: ["ReadWriteOnce"]
+          accessModes:
+            - "ReadWriteOnce"
           resources:
             requests:
               storage: 1Gi
