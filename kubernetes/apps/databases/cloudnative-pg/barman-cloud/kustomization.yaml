@@ -9,5 +9,6 @@ resources:
   - ./objectstore.yaml
   - ./issuer.yaml
   - ./certificate.yaml
+  - ./ocirepository.yaml
   - ./helmrelease.yaml
   - ./rbac.yaml
