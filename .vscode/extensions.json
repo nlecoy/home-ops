@@ -1,9 +1,10 @@
 {
   "recommendations": [
+    "bluebrown.yamlfmt",
     "blueglassblock.better-json5",
     "irongeek.vscode-env",
     "oderwat.indent-rainbow",
-    "pkief.material-icon-theme",
+    "PKief.material-icon-theme",
     "redhat.vscode-yaml",
     "signageos.signageos-vscode-sops"
   ]
