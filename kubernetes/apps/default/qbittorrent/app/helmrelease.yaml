@@ -89,7 +89,7 @@ spec:
                 resources:
                   requests:
                     storage: 1Mi # Ignored
-                storageClassName: local-path
+                storageClassName: openebs-hostpath
                 volumeMode: Filesystem
       media:
         type: hostPath
