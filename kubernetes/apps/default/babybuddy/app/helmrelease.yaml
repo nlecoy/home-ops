@@ -34,7 +34,7 @@ spec:
           app:
             image:
               repository: linuxserver/babybuddy
-              tag: 2.7.1@sha256:99a0812d9656a1f7158c76b3fa20ebc402b0dbc763bd180576b433206b538fea
+              tag: 2.7.1@sha256:5b34d50d5cc61d7ea910f2a68910c5c600009aba48496214bfc47ff4049c5db8
             env:
               DEBUG: false
               PUID: 1000
