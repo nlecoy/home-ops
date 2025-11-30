@@ -58,6 +58,12 @@ spec:
         name: nginx
         default: false
         controllerValue: k8s.io/ingress-nginx
+      admissionWebhooks:
+        objectSelector:
+          matchExpressions:
+            - key: ingress-class
+              operator: In
+              values: ["nginx"]
       metrics:
         enabled: true
         serviceMonitor:
