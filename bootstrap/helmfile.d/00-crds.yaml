@@ -14,7 +14,6 @@ helmDefaults:
     - yq ea -e 'select(.kind == "CustomResourceDefinition")'
 
 releases:
-
   - name: external-secrets
     namespace: external-secrets
     chart: oci://ghcr.io/external-secrets/charts/external-secrets
