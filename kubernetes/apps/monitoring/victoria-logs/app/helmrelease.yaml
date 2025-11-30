@@ -17,25 +17,6 @@ spec:
         storageClassName: openebs-hostpath
         size: 20Gi
       retentionPeriod: 14d
-      # route:
-      #   enabled: true
-      #   hostnames:
-      #     - victoria-logs.nlecoy.fr
-      #   parentRefs:
-      #     - name: envoy-internal
-      #       namespace: network
-      #   extraRules:
-      #     - filters:
-      #         - type: RequestRedirect
-      #           requestRedirect:
-      #             path:
-      #               type: ReplaceFullPath
-      #               replaceFullPath: /select/vmui/
-      #             statusCode: 302
-      #       matches:
-      #         - path:
-      #             type: Exact
-      #             value: /
       serviceMonitor:
         enabled: true
     dashboards:
