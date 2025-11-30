@@ -18,3 +18,4 @@ resources:
   - ./loki/install.yaml
   - ./silence-operator/install.yaml
   - ./smartctl-exporter/install.yaml
+  - ./victoria-logs/install.yaml
