@@ -21,6 +21,14 @@ spec:
       jellyseerr:
         annotations:
           reloader.stakater.com/auto: "true"
+        initContainers:
+          init-db:
+            image:
+              repository: ghcr.io/home-operations/postgres-init
+              tag: 18
+            envFrom: &envFrom
+              - secretRef:
+                  name: jellyseerr-secret
         containers:
           app:
             image:
@@ -30,9 +38,7 @@ spec:
               TZ: Europe/Paris
               LOG_LEVEL: "info"
               PORT: &port 80
-            envFrom:
-              - secretRef:
-                  name: jellyseerr-secret
+            envFrom: *envFrom
             probes:
               liveness: &probes
                 enabled: true
