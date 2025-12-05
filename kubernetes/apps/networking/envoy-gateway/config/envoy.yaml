@@ -74,5 +74,4 @@ spec:
       tls:
         certificateRefs:
           - kind: Secret
-            namespace: cert-manager
             name: nlecoy-fr-tls
