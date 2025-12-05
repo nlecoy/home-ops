@@ -1,9 +1,9 @@
 ---
-# yaml-language-server: $schema=https://homelab-schemas-epg.pages.dev/monitoring.coreos.com/prometheusrule_v1.json
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/monitoring.coreos.com/prometheusrule_v1.json
 apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
-  name: cert-manager
+  name: cert-manager-rules
 spec:
   groups:
     - name: cert-manager.rules
@@ -18,7 +18,7 @@ spec:
           labels:
             severity: critical
 
-    - name: cert-manager-tls.rules
+    - name: certificates
       rules:
         - alert: CertManagerCertExpirySoon
           expr: |-
@@ -26,7 +26,7 @@ spec:
           for: 5m
           annotations:
             summary: >-
-              The cert {{ $labels.name }} is {{ $value | humanizeDuration }} from expiry
+              The cert {{ $labels.name }} is {{ $value | humanizeDuration }} from expiry, it should have renewed over a week ago
           labels:
             severity: critical
 
