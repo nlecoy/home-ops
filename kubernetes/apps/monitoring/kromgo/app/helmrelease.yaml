@@ -60,24 +60,6 @@ spec:
         runAsNonRoot: true
         runAsUser: 1000
         runAsGroup: 1000
-    ingress:
-      app:
-        className: nginx
-        hosts:
-          - host: "{{ .Release.Name }}.nlecoy.fr"
-            paths:
-              - path: /
-                service:
-                  identifier: app
-                  port: http
-    persistence:
-      config:
-        type: configMap
-        name: kromgo-configmap
-        globalMounts:
-          - path: /kromgo/config.yaml
-            subPath: config.yaml
-            readOnly: true
     service:
       app:
         ports:
@@ -90,3 +72,25 @@ spec:
         serviceName: *app
         endpoints:
           - port: health
+    route:
+      app:
+        annotations:
+          gatus.home-operations.com/endpoint: |-
+            conditions: ["[STATUS] == 404"]
+        hostnames:
+          - "{{ .Release.Name }}.nlecoy.fr"
+        parentRefs:
+          - name: envoy
+            namespace: networking
+        rules:
+          - backendRefs:
+              - identifier: app
+                port: *port
+    persistence:
+      config:
+        type: configMap
+        name: kromgo-configmap
+        globalMounts:
+          - path: /kromgo/config.yaml
+            subPath: config.yaml
+            readOnly: true
