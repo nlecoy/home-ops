@@ -58,6 +58,17 @@ spec:
         runAsNonRoot: true
         runAsUser: 1000
         runAsGroup: 1000
+    route:
+      app:
+        annotations:
+          gatus.home-operations.com/endpoint: |-
+            url: https://{{ .Release.Name }}.nlecoy.fr/healthz
+        hostnames:
+          - "{{ .Release.Name }}.nlecoy.fr"
+          - echo.nlecoy.fr
+        parentRefs:
+          - name: envoy
+            namespace: networking
     service:
       app:
         ports:
@@ -68,13 +79,3 @@ spec:
         serviceName: *app
         endpoints:
           - port: http
-    ingress:
-      app:
-        className: nginx
-        hosts:
-          - host: "{{ .Release.Name }}.nlecoy.fr"
-            paths:
-              - path: /
-                service:
-                  identifier: app
-                  port: http
