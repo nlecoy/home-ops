@@ -64,16 +64,14 @@ spec:
         ports:
           http:
             port: *port
-    ingress:
+    route:
       app:
-        className: nginx
-        hosts:
-          - host: "baby.nlecoy.fr"
-            paths:
-              - path: /
-                service:
-                  identifier: app
-                  port: http
+        hostnames:
+          - "baby.nlecoy.fr"
+        parentRefs:
+          - name: envoy
+            namespace: networking
+            sectionName: https
     persistence:
       config:
         type: emptyDir
