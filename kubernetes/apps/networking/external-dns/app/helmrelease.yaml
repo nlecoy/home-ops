@@ -39,18 +39,17 @@ spec:
       - --cloudflare-proxied
       - --crd-source-apiversion=externaldns.k8s.io/v1alpha1
       - --crd-source-kind=DNSEndpoint
-      - --ignore-ingress-tls-spec
-      - --ingress-class=nginx
+      - --gateway-name=envoy
       - --zone-id-filter=$(CF_ZONE_ID)
     triggerLoopOnEvent: true
     policy: sync
     sources:
-      - "crd"
-      - "ingress"
+      - crd
+      - gateway-httproute
     txtOwnerId: default
     txtPrefix: k8s.
     domainFilters:
-      - "nlecoy.fr"
+      - nlecoy.fr
     serviceMonitor:
       enabled: true
     podAnnotations:
