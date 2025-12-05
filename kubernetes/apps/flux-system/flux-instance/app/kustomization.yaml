@@ -6,6 +6,6 @@ resources:
   - ./externalsecret.yaml
   - ./ocirepository.yaml
   - ./helmrelease.yaml
-  - ./ingress.yaml
+  - ./httproute.yaml
   - ./prometheusrule.yaml
   - ./receiver.yaml
