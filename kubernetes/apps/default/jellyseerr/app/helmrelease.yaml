@@ -74,16 +74,17 @@ spec:
         ports:
           http:
             port: *port
-    ingress:
+    route:
       app:
-        className: nginx
-        hosts:
-          - host: "requests.nlecoy.fr"
-            paths:
-              - path: /
-                service:
-                  identifier: app
-                  port: http
+        annotations:
+          gatus.home-operations.com/endpoint: |-
+            conditions: ["[STATUS] == 200"]
+        hostnames:
+          - "{{ .Release.Name }}.nlecoy.fr"
+          - requests.nlecoy.fr
+        parentRefs:
+          - name: envoy
+            namespace: networking
     persistence:
       config:
         existingClaim: jellyseerr
