@@ -38,7 +38,4 @@ spec:
       upstream: file:///dev/null
       whitelist-domain: .nlecoy.fr
     ingress:
-      enabled: true
-      className: nginx
-      hosts:
-        - auth.nlecoy.fr
+      enabled: false

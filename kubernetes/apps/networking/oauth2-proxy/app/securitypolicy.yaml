@@ -1,0 +1,21 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/gateway.envoyproxy.io/securitypolicy_v1alpha1.json
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: SecurityPolicy
+metadata:
+  name: oauth2-proxy
+spec:
+  targetSelectors:
+    - group: gateway.networking.k8s.io
+      kind: HTTPRoute
+      matchLabels:
+        auth: oauth2-proxy
+  extAuth:
+    http:
+      backendRef:
+        name: oauth2-proxy
+        port: 80
+      headersToBackend:
+        - authorization
+        - cookie
+      path: /oauth2/auth
