@@ -68,19 +68,15 @@ spec:
         ports:
           http:
             port: *port
-    ingress:
+    route:
       app:
-        className: nginx
-        annotations:
-          nginx.ingress.kubernetes.io/auth-signin: https://auth.nlecoy.fr/oauth2/start?rd=https://$host$request_uri
-          nginx.ingress.kubernetes.io/auth-url: "https://auth.nlecoy.fr/oauth2/auth"
-        hosts:
-          - host: "{{ .Release.Name }}.nlecoy.fr"
-            paths:
-              - path: /
-                service:
-                  identifier: app
-                  port: http
+        hostnames:
+          - "{{ .Release.Name }}.nlecoy.fr"
+        labels:
+          auth: oauth2-proxy
+        parentRefs:
+          - name: envoy
+            namespace: networking
     persistence:
       config:
         existingClaim: *app

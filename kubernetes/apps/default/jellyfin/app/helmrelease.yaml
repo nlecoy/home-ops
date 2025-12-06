@@ -70,16 +70,13 @@ spec:
         ports:
           http:
             port: *port
-    ingress:
+    route:
       app:
-        className: nginx
-        hosts:
-          - host: "{{ .Release.Name }}.nlecoy.fr"
-            paths:
-              - path: /
-                service:
-                  identifier: app
-                  port: http
+        hostnames:
+          - "{{ .Release.Name }}.nlecoy.fr"
+        parentRefs:
+          - name: envoy
+            namespace: networking
     persistence:
       config:
         existingClaim: jellyfin

@@ -63,8 +63,6 @@ spec:
         annotations:
           gatus.home-operations.com/endpoint: |-
             url: https://{{ .Release.Name }}.nlecoy.fr/healthz
-        labels:
-          auth: oauth2-proxy
         hostnames:
           - "{{ .Release.Name }}.nlecoy.fr"
           - echo.nlecoy.fr
