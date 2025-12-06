@@ -14,8 +14,12 @@ spec:
     http:
       backendRef:
         name: oauth2-proxy
+        namespace: networking
         port: 80
       headersToBackend:
         - authorization
         - cookie
+        - x-auth-request-user
+        - x-auth-request-email
+        - x-auth-request-access-token
       path: /oauth2/auth
