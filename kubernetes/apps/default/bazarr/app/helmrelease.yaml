@@ -61,6 +61,16 @@ spec:
         ports:
           http:
             port: *port
+    route:
+      app:
+        hostnames:
+          - "{{ .Release.Name }}.nlecoy.fr"
+        labels:
+          auth: oauth2-proxy
+        parentRefs:
+          - name: envoy
+            namespace: networking
+            sectionName: https
     ingress:
       app:
         className: nginx
