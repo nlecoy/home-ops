@@ -82,16 +82,16 @@ spec:
       app:
         endpoints:
           - port: http
-    ingress:
+    route:
       app:
-        className: nginx
-        hosts:
-          - host: "status.nlecoy.fr"
-            paths:
-              - path: /
-                service:
-                  identifier: app
-                  port: http
+        annotations:
+          gatus.home-operations.com/enabled: "false"
+        hostnames:
+          - "{{ .Release.Name }}.nlecoy.fr"
+          - status.nlecoy.fr
+        parentRefs:
+          - name: envoy
+            namespace: networking
     rbac:
       roles:
         gatus:
