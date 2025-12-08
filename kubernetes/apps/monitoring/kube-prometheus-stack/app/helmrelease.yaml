@@ -20,7 +20,8 @@ spec:
     cleanPrometheusOperatorObjectNames: true
     alertmanager:
       route:
-        enabled: false
+        main:
+          enabled: false
       alertmanagerSpec:
         alertmanagerConfiguration:
           name: alertmanager
@@ -41,7 +42,8 @@ spec:
       enabled: false
     prometheus:
       route:
-        enabled: false
+        main:
+          enabled: false
       prometheusSpec:
         version: v2.55.1 # override 'unsupported Prometheus version' error
         image:
