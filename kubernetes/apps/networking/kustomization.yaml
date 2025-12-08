@@ -13,4 +13,3 @@ resources:
   - ./echo/install.yaml
   - ./envoy-gateway/install.yaml
   - ./external-dns/install.yaml
-  - ./oauth2-proxy/install.yaml
