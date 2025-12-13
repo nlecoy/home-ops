@@ -6,8 +6,6 @@ metadata:
   name: envoy-gateway
   namespace: &namespace networking
 spec:
-  dependsOn:
-    - name: certificates-import
   interval: 1h
   path: ./kubernetes/apps/networking/envoy-gateway/app
   prune: true
@@ -16,4 +14,24 @@ spec:
     name: flux-system
     namespace: flux-system
   targetNamespace: *namespace
-  wait: false
+  wait: true
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/kustomize.toolkit.fluxcd.io/kustomization_v1.json
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: envoy-gateway-proxy
+  namespace: &namespace networking
+spec:
+  dependsOn:
+    - name: cert-manager
+      namespace: cert-manager
+    - name: envoy-gateway
+  interval: 1h
+  path: ./kubernetes/apps/networking/envoy-gateway/proxy
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+    namespace: flux-system
+  targetNamespace: *namespace

@@ -5,6 +5,3 @@ kind: Kustomization
 resources:
   - ./ocirepository.yaml
   - ./helmrelease.yaml
-  - ./envoy.yaml
-  - ./podmonitor.yaml
-  - ./servicemonitor.yaml
