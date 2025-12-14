@@ -7,3 +7,4 @@ resources:
   - ./envoy.yaml
   - ./podmonitor.yaml
   - ./servicemonitor.yaml
+  - ./grafanadashboard.yaml
