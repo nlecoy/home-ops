@@ -14,18 +14,13 @@ helmDefaults:
     - yq ea -e 'select(.kind == "CustomResourceDefinition")'
 
 releases:
-  - name: external-secrets
-    namespace: external-secrets
-    chart: oci://ghcr.io/external-secrets/charts/external-secrets
-    version: 1.1.1
-
-  - name: gateway-api-crds
-    namespace: kube-system
-    chart: oci://ghcr.io/wiremind/wiremind-helm-charts/gateway-api-crds
-    version: 1.4.0
+  - name: envoy-gateway
+    namespace: network
+    chart: oci://mirror.gcr.io/envoyproxy/gateway-helm
+    version: v1.6.1
 
   - name: grafana-operator
-    namespace: observability
+    namespace: monitoring
     chart: oci://ghcr.io/grafana/helm-charts/grafana-operator
     version: v5.20.0
 
