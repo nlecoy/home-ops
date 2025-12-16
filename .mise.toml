@@ -3,7 +3,7 @@ JUST_UNSTABLE = "1"
 KUBECONFIG = "{{config_root}}/kubeconfig"
 
 [tools]
-"uv" = "0.9.17"
+"uv" = "0.9.18"
 "aqua:casey/just" = "1.45.0"
 "aqua:derailed/k9s" = "0.50.16"
 "aqua:fluxcd/flux2" = "2.7.5"
