@@ -73,18 +73,10 @@ spec:
         type: hostPath
         hostPath: /var/media
         globalMounts:
-          - readOnly: true
-      tmpfs:
+          - path: /media
+            readOnly: true
+      tmp:
         type: emptyDir
-        advancedMounts:
-          plex:
-            app:
-              - path: /config/Library/Application Support/Plex Media Server/Logs
-                subPath: logs
-              - path: /transcode
-                subPath: transcode
-              - path: /tmp
-                subPath: tmp
     route:
       app:
         annotations:
