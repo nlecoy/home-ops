@@ -65,6 +65,8 @@ spec:
     persistence:
       config:
         existingClaim: "{{ .Release.Name }}"
+        globalMounts:
+          - path: /config/Library/Application Support/Plex Media Server
       config-cache:
         existingClaim: "{{ .Release.Name }}-cache"
         globalMounts:
@@ -75,8 +77,17 @@ spec:
         globalMounts:
           - path: /media
             readOnly: true
-      tmp:
+      tmpfs:
         type: emptyDir
+        advancedMounts:
+          plex:
+            app:
+              - path: /config/Library/Application Support/Plex Media Server/Logs
+                subPath: logs
+              - path: /transcode
+                subPath: transcode
+              - path: /tmp
+                subPath: tmp
     route:
       app:
         annotations:
