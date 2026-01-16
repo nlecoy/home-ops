@@ -70,7 +70,6 @@ spec:
         fsGroupChangePolicy: OnRootMismatch
     service:
       app:
-        controller: jellyseerr
         ports:
           http:
             port: *port
@@ -83,7 +82,7 @@ spec:
           - "{{ .Release.Name }}.nlecoy.fr"
           - requests.nlecoy.fr
         parentRefs:
-          - name: envoy
+          - name: envoy-external
             namespace: networking
     persistence:
       config:

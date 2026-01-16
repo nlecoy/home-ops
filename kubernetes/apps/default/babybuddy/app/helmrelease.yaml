@@ -67,11 +67,11 @@ spec:
     route:
       app:
         hostnames:
+          - "{{ .Release.Name }}.nlecoy.fr"
           - "baby.nlecoy.fr"
         parentRefs:
-          - name: envoy
+          - name: envoy-external
             namespace: networking
-            sectionName: https
     persistence:
       config:
         type: emptyDir

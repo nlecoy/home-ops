@@ -66,18 +66,19 @@ spec:
           - 44
     service:
       app:
-        controller: jellyfin
         ports:
           http:
             port: *port
     route:
       app:
+        annotations:
+          gatus.home-operations.com/endpoint: |-
+            conditions: ["[STATUS] == 401"]
         hostnames:
           - "{{ .Release.Name }}.nlecoy.fr"
         parentRefs:
-          - name: envoy
+          - name: envoy-external
             namespace: networking
-            sectionName: https
     persistence:
       config:
         existingClaim: jellyfin
@@ -88,8 +89,9 @@ spec:
         globalMounts:
           - path: /config/metadata
       media:
-        type: hostPath
-        hostPath: /var/media
+        type: nfs
+        server: nas.internal
+        path: /drive/media
         globalMounts:
           - path: /media
             readOnly: true

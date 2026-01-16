@@ -10,7 +10,7 @@ spec:
   hostnames:
     - flux-webhook.nlecoy.fr
   parentRefs:
-    - name: envoy
+    - name: envoy-external
       namespace: networking
   rules:
     - backendRefs:

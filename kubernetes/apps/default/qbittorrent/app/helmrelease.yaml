@@ -63,12 +63,13 @@ spec:
         hostnames:
           - "{{ .Release.Name }}.nlecoy.fr"
           - qb.nlecoy.fr
-        labels:
-          auth: oauth2-proxy
         parentRefs:
-          - name: envoy
+          - name: envoy-internal
             namespace: networking
-            sectionName: https
+        rules:
+          - backendRefs:
+              - identifier: app
+                port: *port
     persistence:
       db:
         existingClaim: *app
@@ -88,10 +89,11 @@ spec:
                 storageClassName: openebs-hostpath
                 volumeMode: Filesystem
       media:
-        type: hostPath
-        hostPath: /var/media/downloads
+        type: nfs
+        server: nas.internal
+        path: /drive/media
         globalMounts:
-          - path: /data/downloads
+          - path: /media/downloads
       tmp:
         type: emptyDir
       run:

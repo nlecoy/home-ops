@@ -9,8 +9,9 @@ resources:
   # Pre Flux-Kustomizations
   - ./namespace.yaml
   # Flux-Kustomizations
+  - ./cilium/install.yaml
   - ./coredns/install.yaml
   - ./descheduler/install.yaml
-  - ./gateway-api-crds/install.yaml
+  - ./intel-gpu-resource-driver/install.yaml
   - ./metrics-server/install.yaml
   - ./reloader/install.yaml

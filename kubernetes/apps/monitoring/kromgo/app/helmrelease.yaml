@@ -80,17 +80,16 @@ spec:
         hostnames:
           - "{{ .Release.Name }}.nlecoy.fr"
         parentRefs:
-          - name: envoy
+          - name: envoy-external
             namespace: networking
         rules:
           - backendRefs:
               - identifier: app
                 port: *port
     persistence:
-      config:
+      config-file:
         type: configMap
         name: kromgo-configmap
         globalMounts:
           - path: /kromgo/config.yaml
             subPath: config.yaml
-            readOnly: true

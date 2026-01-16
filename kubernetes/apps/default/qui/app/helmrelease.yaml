@@ -30,7 +30,7 @@ spec:
               QUI__HOST: 0.0.0.0
               QUI__PORT: &port 80
               QUI__LOG_LEVEL: INFO
-              TZ: America/New_York
+              TZ: Europe/Paris
             envFrom:
               - secretRef:
                   name: "{{ .Release.Name }}-secret"
@@ -72,10 +72,8 @@ spec:
       app:
         hostnames:
           - "{{ .Release.Name }}.nlecoy.fr"
-        labels:
-          auth: oauth2-proxy
         parentRefs:
-          - name: envoy
+          - name: envoy-internal
             namespace: networking
     persistence:
       config:

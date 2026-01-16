@@ -9,7 +9,6 @@ resources:
   # Pre Flux-Kustomizations
   - ./namespace.yaml
   # Flux-Kustomizations
-  - ./alloy/install.yaml
   - ./fluent-bit/install.yaml
   - ./gatus/install.yaml
   - ./grafana/install.yaml

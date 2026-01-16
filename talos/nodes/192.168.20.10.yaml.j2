@@ -1,0 +1,20 @@
+---
+machine:
+  type: controlplane
+  nodeLabels:
+    topology.kubernetes.io/zone: m
+  install:
+    diskSelector:
+      serial: 25154F4FFCAE
+---
+apiVersion: v1alpha1
+kind: HostnameConfig
+hostname: cp-01.k8s.internal
+---
+apiVersion: v1alpha1
+kind: UserVolumeConfig
+name: local-hostpath
+volumeType: disk
+provisioning:
+  diskSelector:
+    match: disk.serial == "2535526F5FD5"

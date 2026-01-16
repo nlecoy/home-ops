@@ -65,12 +65,9 @@ spec:
       app:
         hostnames:
           - "{{ .Release.Name }}.nlecoy.fr"
-        labels:
-          auth: oauth2-proxy
         parentRefs:
-          - name: envoy
+          - name: envoy-internal
             namespace: networking
-            sectionName: https
     persistence:
       config:
         existingClaim: *app
@@ -83,8 +80,9 @@ spec:
         globalMounts:
           - path: /config/log
       media:
-        type: hostPath
-        hostPath: /var/media
+        type: nfs
+        server: nas.internal
+        path: /drive/media
         globalMounts:
           - path: /media
       tmp:

@@ -58,8 +58,12 @@ This Git repository contains the following directories under [kubernetes](./kube
 └─📁 flux          # Flux system configuration
 ```
 
----
-
 ## Hardware
 
-I'm currently running this on a [Kimsufi](https://www.kimsufi.com/fr/) KS-2 server. The cluster isn't production-ready, as it consists of a single node running k3s. This setup is primarily for personal use—it's a playground for experimenting with Kubernetes and other technologies I enjoy working with.
+
+| Device                      | Num | OS Disk Size | Data Disk Size                  | Ram  | OS            | Function                |
+|-----------------------------|-----|--------------|---------------------------------|------|---------------|-------------------------|
+| Beelink EQi12   | 1   | 500GB SSD      | 1TB (local) | 32GB | Talos         | Kubernetes              |
+| UNAS 2         | 1   | -      | 2x2TB ZFS (mirrored vdevs)     | 4GB | - | NFS + Backup Server     |
+| Express 7              | 1   | -            | -                       | -    | -             | Router            |
+| Flex Mini | 1   | -            | -                               | -    | -             | 1Gb Switch        |
