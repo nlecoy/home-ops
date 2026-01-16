@@ -14,7 +14,7 @@ resources:
   - ./flaresolverr/install.yaml
   - ./jellyfin/install.yaml
   - ./jellyseerr/install.yaml
-  - ./plex/install.yaml
+  # - ./plex/install.yaml
   - ./prowlarr/install.yaml
   - ./qbittorrent/install.yaml
   - ./qui/install.yaml
