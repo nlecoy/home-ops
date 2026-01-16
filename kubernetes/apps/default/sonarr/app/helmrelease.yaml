@@ -96,7 +96,7 @@ spec:
       media:
         type: nfs
         server: nas.internal
-        path: /drive/media
+        path: /var/nfs/shared/drive/mnt/media
         globalMounts:
           - path: /media
       tmp:
