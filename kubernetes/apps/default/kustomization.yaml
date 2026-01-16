@@ -13,11 +13,11 @@ resources:
   - ./bazarr/install.yaml
   - ./flaresolverr/install.yaml
   - ./jellyfin/install.yaml
-  - ./jellyseerr/install.yaml
   - ./plex/install.yaml
   - ./prowlarr/install.yaml
   - ./qbittorrent/install.yaml
   - ./qui/install.yaml
   - ./radarr/install.yaml
   - ./recyclarr/install.yaml
+  - ./seerr/install.yaml
   - ./sonarr/install.yaml
