@@ -82,8 +82,6 @@ spec:
       media:
         type: nfs
         server: nas.internal
-        path: /volume/8d29eaa2-2904-491b-bcfe-3c5b1c414a7a/.srv/.unifi-drive/drive/.data
-        globalMounts:
-          - path: /media
+        path: /var/nfs/shared/media
       tmp:
         type: emptyDir
