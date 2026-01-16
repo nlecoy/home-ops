@@ -11,6 +11,7 @@ resources:
   # Flux-Kustomizations
   - ./cilium/install.yaml
   - ./coredns/install.yaml
+  - ./csi-driver-nfs/install.yaml
   - ./descheduler/install.yaml
   - ./intel-gpu-resource-driver/install.yaml
   - ./metrics-server/install.yaml
