@@ -17,4 +17,5 @@ resources:
   - ./kube-prometheus-stack/install.yaml
   - ./silence-operator/install.yaml
   - ./smartctl-exporter/install.yaml
+  - ./unpoller/install.yaml
   - ./victoria-logs/install.yaml
