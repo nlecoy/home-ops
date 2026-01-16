@@ -30,7 +30,8 @@ spec:
       exclusive: false
     dashboards:
       enabled: true
-    devices: bond+
+    devices: enp+
+    directRoutingDevice: enp171s0
     enableIPv4BIGTCP: true
     endpointRoutes:
       enabled: true
@@ -60,7 +61,7 @@ spec:
         enabled: true
         serviceMonitor:
           enabled: true
-      replicas: 2
+      replicas: 1
       rollOutPods: true
     pmtuDiscovery:
       enabled: true
