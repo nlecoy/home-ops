@@ -59,6 +59,13 @@ spec:
         runAsGroup: 1000
         fsGroup: 1000
         fsGroupChangePolicy: OnRootMismatch
+    route:
+      app:
+        hostnames:
+          - "{{ .Release.Name }}.nlecoy.fr"
+        parentRefs:
+          - name: envoy-internal
+            namespace: networking
     service:
       app:
         ports:
