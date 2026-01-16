@@ -76,25 +76,10 @@ spec:
         existingClaim: *app
         globalMounts:
           - path: /data/db
-      # incomplete:
-      #   type: custom
-      #   volumeSpec:
-      #     ephemeral:
-      #       volumeClaimTemplate:
-      #         spec:
-      #           accessModes:
-      #             - ReadWriteOnce
-      #           resources:
-      #             requests:
-      #               storage: 1Mi # Ignored
-      #           storageClassName: openebs-hostpath
-      #           volumeMode: Filesystem
       media:
         type: nfs
         server: nas.internal
         path: /var/nfs/shared/media
-        globalMounts:
-          - path: /media/downloads
       tmp:
         type: emptyDir
       run:
