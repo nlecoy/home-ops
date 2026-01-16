@@ -104,7 +104,7 @@ spec:
       media:
         type: nfs
         server: nas.internal
-        path: /var/nfs/shared/drive
+        path: /mnt/drive
         globalMounts:
           - path: /media
             readOnly: true
