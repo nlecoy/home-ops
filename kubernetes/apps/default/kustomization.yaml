@@ -9,6 +9,7 @@ resources:
   # Pre Flux-Kustomizations
   - ./namespace.yaml
   # Flux-Kustomizations
+  - ./agregarr/install.yaml
   - ./babybuddy/install.yaml
   - ./bazarr/install.yaml
   - ./flaresolverr/install.yaml
