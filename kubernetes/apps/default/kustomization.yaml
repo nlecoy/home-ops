@@ -12,7 +12,6 @@ resources:
   - ./babybuddy/install.yaml
   - ./bazarr/install.yaml
   - ./flaresolverr/install.yaml
-  - ./jellyfin/install.yaml
   - ./plex/install.yaml
   - ./prowlarr/install.yaml
   - ./qbittorrent/install.yaml
