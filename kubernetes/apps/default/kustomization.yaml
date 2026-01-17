@@ -21,3 +21,4 @@ resources:
   - ./recyclarr/install.yaml
   - ./seerr/install.yaml
   - ./sonarr/install.yaml
+  - ./tautulli/install.yaml
