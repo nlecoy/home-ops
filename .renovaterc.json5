@@ -1,11 +1,11 @@
 {
   $schema: "https://docs.renovatebot.com/renovate-schema.json",
-  reviewersFromCodeOwners: true,
   extends: [
     "config:recommended",
     "docker:enableMajor",
     "helpers:pinGitHubActionDigests",
     "github>nlecoy/home-ops//.renovate/autoMerge.json5",
+    "github>nlecoy/home-ops//.renovate/changelogs.json5",
     "github>nlecoy/home-ops//.renovate/customManagers.json5",
     "github>nlecoy/home-ops//.renovate/grafanaDashboards.json5",
     "github>nlecoy/home-ops//.renovate/groups.json5",
@@ -24,10 +24,12 @@
     "prIgnoreNotification",
   ],
   ignorePaths: [
-    "**/*.sops.*",
     "**/resources/**",
   ],
   flux: {
+    managerFilePatterns: ["/\\.yaml(?:\\.j2)?$/"],
+  },
+  "helm-values": {
     managerFilePatterns: ["/\\.yaml(?:\\.j2)?$/"],
   },
   kubernetes: {
