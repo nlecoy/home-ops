@@ -38,7 +38,6 @@ spec:
             env:
               DISABLE_REVERSE_GEOCODING: "true"
               ENABLE_MAPBOX: "false"
-              LOG_LEVEL: verbose
               REDIS_DBINDEX: "1"
               REDIS_HOSTNAME: "dragonfly.databases.svc.cluster.local"
               REDIS_PORT: "6379"
