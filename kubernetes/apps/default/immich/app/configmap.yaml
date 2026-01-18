@@ -5,5 +5,5 @@ metadata:
   name: immich-initdb
 data:
   immich.sql: |
-    CREATE EXTENSION IF NOT EXISTS vector;
+    CREATE EXTENSION IF NOT EXISTS vector CASCADE;
     CREATE EXTENSION IF NOT EXISTS earthdistance CASCADE;
