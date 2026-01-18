@@ -39,6 +39,7 @@ spec:
               DISABLE_REVERSE_GEOCODING: "true"
               ENABLE_MAPBOX: "false"
               IMMICH_MACHINE_LEARNING_URL: "false"
+              LOG_LEVEL: verbose
               REDIS_DBINDEX: "1"
               REDIS_HOSTNAME: "dragonfly.databases.svc.cluster.local"
               REDIS_PORT: "6379"
