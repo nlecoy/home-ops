@@ -13,6 +13,7 @@ resources:
   - ./babybuddy/install.yaml
   - ./bazarr/install.yaml
   - ./flaresolverr/install.yaml
+  - ./immich/install.yaml
   - ./plex/install.yaml
   - ./prowlarr/install.yaml
   - ./qbittorrent/install.yaml
