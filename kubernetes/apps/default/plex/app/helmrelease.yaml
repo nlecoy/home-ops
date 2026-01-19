@@ -107,8 +107,7 @@ spec:
         server: nas.internal
         path: /var/nfs/shared/media
         globalMounts:
-          - path: /data
-            readOnly: true
+            - readOnly: true
       logs:
         type: emptyDir
         globalMounts:
