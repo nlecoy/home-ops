@@ -107,6 +107,11 @@ spec:
         server: nas.internal
         path: /var/nfs/shared/media
         globalMounts:
-          - readOnly: true
+          - path: /data
+            readOnly: true
+      logs:
+        type: emptyDir
+        globalMounts:
+          - path: /config/Library/Application Support/Plex Media Server/Logs
       tmp:
         type: emptyDir
