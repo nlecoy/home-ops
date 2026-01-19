@@ -74,8 +74,6 @@ spec:
     persistence:
       db:
         existingClaim: *app
-        globalMounts:
-          - path: /data/db
       media:
         type: nfs
         server: nas.internal
