@@ -9,14 +9,3 @@ spec:
     requests:
       storage: 1Gi
   storageClassName: openebs-hostpath
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: plex-cache
-spec:
-  accessModes: ["ReadWriteOnce"]
-  resources:
-    requests:
-      storage: 5Gi
-  storageClassName: openebs-hostpath
