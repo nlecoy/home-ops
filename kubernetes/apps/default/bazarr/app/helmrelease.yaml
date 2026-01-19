@@ -28,6 +28,9 @@ spec:
             env:
               BAZARR__PORT: &port 6767
               TZ: Europe/Paris
+            envFrom:
+              - secretRef:
+                  name: bazarr-secret
             probes:
               liveness: &probes
                 enabled: true
