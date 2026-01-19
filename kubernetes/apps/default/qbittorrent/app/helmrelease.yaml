@@ -74,12 +74,12 @@ spec:
     persistence:
       db:
         existingClaim: *app
+        globalMounts:
+          - path: /data/db
       media:
         type: nfs
         server: nas.internal
         path: /var/nfs/shared/media
-        globalMounts:
-          - path: /data
       tmp:
         type: emptyDir
       run:
