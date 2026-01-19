@@ -5,9 +5,13 @@ kind: Certificate
 metadata:
   name: nlecoy-fr
 spec:
-  secretName: nlecoy-fr-tls
+  dnsNames:
+    - nlecoy.fr
+    - "*.nlecoy.fr"
+  duration: 160h
   issuerRef:
     name: letsencrypt-production
     kind: ClusterIssuer
-  commonName: nlecoy.fr
-  dnsNames: ["nlecoy.fr", "*.nlecoy.fr"]
+  secretName: nlecoy-fr-tls
+  usages:
+    - digital signature
