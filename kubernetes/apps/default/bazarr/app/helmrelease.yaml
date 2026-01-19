@@ -20,6 +20,16 @@ spec:
   values:
     controllers:
       bazarr:
+        annotations:
+          reloader.stakater.com/auto: "true"
+        initContainers:
+          init-db:
+            image:
+              repository: ghcr.io/home-operations/postgres-init
+              tag: 18
+            envFrom: &envFrom
+              - secretRef:
+                  name: radarr-secret
         containers:
           app:
             image:
@@ -28,9 +38,7 @@ spec:
             env:
               BAZARR__PORT: &port 6767
               TZ: Europe/Paris
-            envFrom:
-              - secretRef:
-                  name: bazarr-secret
+            envFrom: *envFrom
             probes:
               liveness: &probes
                 enabled: true
