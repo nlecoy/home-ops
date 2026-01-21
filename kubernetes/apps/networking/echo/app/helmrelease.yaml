@@ -1,22 +1,14 @@
 ---
-# yaml-language-server: $schema=https://homelab-schemas-epg.pages.dev/helm.toolkit.fluxcd.io/helmrelease_v2.json
+# yaml-language-server: $schema=https://raw.githubusercontent.com/bjw-s-labs/helm-charts/main/charts/other/app-template/schemas/helmrelease-helm-v2.schema.json
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: &app echo
+  name: echo
 spec:
-  interval: 1h
   chartRef:
     kind: OCIRepository
-    name: *app
-  install:
-    remediation:
-      retries: -1
-  upgrade:
-    cleanupOnFail: true
-    remediation:
-      strategy: rollback
-      retries: 3
+    name: echo
+  interval: 1h
   values:
     controllers:
       echo:
@@ -66,7 +58,6 @@ spec:
             port: *port
     serviceMonitor:
       app:
-        serviceName: *app
         endpoints:
           - port: http
     route:

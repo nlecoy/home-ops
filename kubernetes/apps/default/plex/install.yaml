@@ -6,11 +6,9 @@ metadata:
   name: &app plex
   namespace: &namespace default
 spec:
-  commonMetadata:
-    labels:
-      app.kubernetes.io/name: *app
-  components:
-    - ../../../../components/gatus
+  dependsOn:
+    - name: intel-gpu-resource-driver
+      namespace: kube-system
   interval: 1h
   path: ./kubernetes/apps/default/plex/app
   postBuild:
