@@ -1,0 +1,10 @@
+---
+ingress:
+  - hostname: "*.nlecoy.fr"
+    service: https://envoy-external.networking.svc.cluster.local
+    originRequest:
+      http2Origin: true
+      keepAliveTimeout: 3600s
+      originServerName: external.nlecoy.fr
+      tcpKeepAlive: 7200s
+  - service: http_status:404

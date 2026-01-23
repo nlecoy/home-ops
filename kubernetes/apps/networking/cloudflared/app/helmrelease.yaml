@@ -21,15 +21,16 @@ spec:
             image:
               repository: mirror.gcr.io/cloudflare/cloudflared
               tag: 2026.1.1@sha256:5bb6a0870686742d00e171f36c892ba91e5994631bc363d808b9ba822262dad6
-            env:
-              NO_AUTOUPDATE: true
-              TUNNEL_METRICS: 0.0.0.0:8080
-            envFrom:
-              - secretRef:
-                  name: "{{ .Release.Name }}-secret"
             args:
               - tunnel
               - run
+            env:
+              NO_AUTOUPDATE: true
+              TUNNEL_METRICS: 0.0.0.0:8080
+              TUNNEL_TRANSPORT_PROTOCOL: http2
+            envFrom:
+              - secretRef:
+                  name: "{{ .Release.Name }}-secret"
             probes:
               liveness: &probes
                 enabled: true
@@ -43,21 +44,29 @@ spec:
                   timeoutSeconds: 1
                   failureThreshold: 3
               readiness: *probes
-            securityContext:
-              allowPrivilegeEscalation: false
-              readOnlyRootFilesystem: true
-              capabilities: {drop: ["ALL"]}
             resources:
               requests:
                 cpu: 10m
                 memory: 64Mi
               limits:
-                memory: 256Mi
+                memory: 128Mi
+            securityContext:
+              allowPrivilegeEscalation: false
+              readOnlyRootFilesystem: true
+              capabilities: { drop: ["ALL"] }
     defaultPodOptions:
       securityContext:
         runAsNonRoot: true
         runAsUser: 1000
         runAsGroup: 1000
+    persistence:
+      config:
+        type: configMap
+        name: "{{ .Release.Name }}-configmap"
+        globalMounts:
+          - path: /etc/cloudflared/config.yaml
+            subPath: config.yaml
+            readOnly: true
     service:
       app:
         ports:
@@ -67,23 +76,3 @@ spec:
       app:
         endpoints:
           - port: http
-    configMaps:
-      config:
-        data:
-          config.yaml: |-
-            ingress:
-              - hostname: "*.nlecoy.fr"
-                originRequest:
-                  http2Origin: true
-                  keepAliveTimeout: 3600s
-                  originServerName: external.nlecoy.fr
-                  tcpKeepAlive: 7200s
-                service: https://envoy-external.{{ .Release.Namespace }}.svc.cluster.local:443
-              - service: http_status:404
-    persistence:
-      config-file:
-        type: configMap
-        identifier: config
-        globalMounts:
-          - path: /etc/cloudflared/config.yaml
-            subPath: config.yaml
