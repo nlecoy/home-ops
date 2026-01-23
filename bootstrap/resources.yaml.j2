@@ -14,11 +14,3 @@ metadata:
 stringData:
   1password-credentials.json: op://HomeOps/1password/OP_CREDENTIALS_JSON
   token: op://HomeOps/1password/OP_CONNECT_TOKEN
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: cloudflare-tunnel-id-secret
-  namespace: networking
-stringData:
-  CLOUDFLARE_TUNNEL_ID: op://HomeOps/cloudflare/CLOUDFLARE_TUNNEL_ID

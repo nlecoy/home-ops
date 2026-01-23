@@ -9,8 +9,7 @@ resources:
   # Pre Flux-Kustomizations
   - ./namespace.yaml
   # Flux-Kustomizations
-  - ./cloudflare-dns/install.yaml
-  - ./cloudflare-tunnel/install.yaml
+  - ./cloudflared/install.yaml
   - ./echo/install.yaml
   - ./envoy-gateway/install.yaml
-  - ./unifi-dns/install.yaml
+  - ./external-dns/install.yaml
