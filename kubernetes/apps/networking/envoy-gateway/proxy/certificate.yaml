@@ -12,6 +12,10 @@ spec:
   issuerRef:
     name: letsencrypt-production
     kind: ClusterIssuer
+  privateKey:
+    algorithm: ECDSA
+    size: 256
+    rotationPolicy: Always
   secretName: nlecoy-fr-tls
   usages:
     - digital signature
