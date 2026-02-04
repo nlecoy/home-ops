@@ -15,4 +15,3 @@ resources:
   - ./intel-gpu-resource-driver/install.yaml
   - ./metrics-server/install.yaml
   - ./reloader/install.yaml
-  - ./spegel/install.yaml
