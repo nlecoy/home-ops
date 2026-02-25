@@ -6,7 +6,7 @@ JUST_UNSTABLE = "1"
 LEFTHOOK_OUTPUT = "false"
 
 [tools]
-"uv" = "0.10.4"
+"uv" = "0.10.6"
 "aqua:casey/just" = "1.46.0"
 "aqua:derailed/k9s" = "0.50.18"
 "aqua:fluxcd/flux2" = "2.7.5"
