@@ -1,17 +1,31 @@
 ---
 # yaml-language-server: $schema=https://raw.githubusercontent.com/recyclarr/recyclarr/master/schemas/config-schema.json
 sonarr:
-  sonarr:
+  series:
     base_url: http://sonarr.default.svc.cluster.local:8989
     api_key: !env_var SONARR_API_KEY
     delete_old_custom_formats: true
-    replace_existing_custom_formats: true
-    include:
-      - template: sonarr-quality-definition-series
-      - template: sonarr-v4-quality-profile-web-1080p
-      - template: sonarr-v4-custom-formats-web-1080p
+
+    media_management:
+      propers_and_repacks: do_not_prefer
+
+    media_naming:
+      episodes:
+        anime: default
+        daily: default
+        rename: true
+        standard: default
+      season: default
+      series: plex-imdb
+
+    quality_definition:
+      type: series
+
     quality_profiles:
-      - name: WEB-1080p
+      - trash_id: 72dae194fc92bf828f32cde7744e51a1 # WEB-1080p
+        name: WEB-1080p
+        reset_unmatched_scores:
+          enabled: true
     custom_formats:
       - trash_ids:
           - 10e77b96ae4770a7de645a91a53ce29a  # Language: Original + French
@@ -20,43 +34,56 @@ sonarr:
           - 322fca6f8f3694acc1401ddb530fd33d  # Language: Not French
           - 7ba05c6e0e14e793538174c679126996  # MULTi
         assign_scores_to:
-          - name: WEB-1080p
+          - trash_id: 72dae194fc92bf828f32cde7744e51a1 # WEB-1080p
+            score: 100
 
 radarr:
-  radarr:
+  movies:
     base_url: http://radarr.default.svc.cluster.local:7878
     api_key: !env_var RADARR_API_KEY
     delete_old_custom_formats: true
-    replace_existing_custom_formats: true
+
+    media_management:
+      propers_and_repacks: do_not_prefer
+
+    media_naming:
+      folder: plex-imdb
+      movie:
+        rename: true
+        standard: plex-imdb
+
+    quality_definition:
+      type: movie
+
     quality_profiles:
-      - name: SQP-1 (2160p)
-    include:
-      - template: radarr-quality-definition-sqp-streaming
-      - template: radarr-quality-profile-sqp-1-2160p-default
-      - template: radarr-custom-formats-sqp-1-2160p
+      - trash_id: 64fb5f9858489bdac2af690e27c8f42f # UHD Bluray + WEB
+        name: SQP-1 (2160p)
+        score_set: sqp-1-2160p
+        reset_unmatched_scores:
+          enabled: true
     custom_formats:
       - trash_ids:
           - 839bea857ed2c0a8e084f3cbdbd65ecb # x265 (no HDR/DV)
         assign_scores_to:
-          - name: SQP-1 (2160p)
+          - trash_id: 64fb5f9858489bdac2af690e27c8f42f # UHD Bluray + WEB
             score: 0
       - trash_ids: [ "0542a48746585dc4444bbbb8a6bdf6ea" ] # Language: Original + French
         assign_scores_to:
-          - name: SQP-1 (2160p)
+          - trash_id: 64fb5f9858489bdac2af690e27c8f42f # UHD Bluray + WEB
             score: -10000
       - trash_ids: [ "d6e9318c875905d6cfb5bee961afcea9" ] # Language: Not Original
         assign_scores_to:
-          - name: SQP-1 (2160p)
+          - trash_id: 64fb5f9858489bdac2af690e27c8f42f # UHD Bluray + WEB
             score: -10000
       - trash_ids: [ "533f782474f0819643c2ec0c1eeeb0ac" ] # Language: Not French
         assign_scores_to:
-          - name: SQP-1 (2160p)
+          - trash_id: 64fb5f9858489bdac2af690e27c8f42f # UHD Bluray + WEB
             score: 0
       - trash_ids: [ "9172b2f683f6223e3a1846427b417a3d" ] # VOSTFR
         assign_scores_to:
-          - name: SQP-1 (2160p)
+          - trash_id: 64fb5f9858489bdac2af690e27c8f42f # UHD Bluray + WEB
             score: 101
       - trash_ids: [ "4b900e171accbfb172729b63323ea8ca" ] # MULTi
         assign_scores_to:
-          - name: SQP-1 (2160p)
+          - trash_id: 64fb5f9858489bdac2af690e27c8f42f # UHD Bluray + WEB
             score: 0
