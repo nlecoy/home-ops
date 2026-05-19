@@ -24,7 +24,7 @@ spec:
           app:
             image:
               repository: ghcr.io/rogerfar/rdtclient
-              tag: 2.0.130@sha256:379968e21a95fb610fe0ce8302e835544c756b4663f1b8fd54e33c176b672307
+              tag: 2.0.133@sha256:ed50479491d75c0a431900de2240f3fea31c5476a811fb4d8bad510dc896fbb0
             env:
               PUID: 1000
               PGID: 1000
