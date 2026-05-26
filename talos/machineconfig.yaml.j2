@@ -46,7 +46,7 @@ machine:
         noatime=True
         nolock=True
   install:
-    image: factory.talos.dev/metal-installer/039535a70c3bd1667c355eca78571267704e55c8a24785033d183b8f26e39d82:v1.12.1
+    image: factory.talos.dev/metal-installer/039535a70c3bd1667c355eca78571267704e55c8a24785033d183b8f26e39d82:v1.13.2
   kernel:
     modules:
       - name: nbd
@@ -55,7 +55,7 @@ machine:
     disableManifestsDirectory: true
     extraConfig:
       serializeImagePulls: false
-    image: ghcr.io/siderolabs/kubelet:v1.35.1
+    image: ghcr.io/siderolabs/kubelet:v1.36.1
     nodeIP:
       validSubnets:
         - 192.168.20.0/24
