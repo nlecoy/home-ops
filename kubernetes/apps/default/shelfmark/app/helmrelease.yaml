@@ -93,6 +93,8 @@ spec:
         path: /var/nfs/shared/media
         globalMounts:
           - path: /media
+          - path: /books
+          - path: /downloads
       tmp:
         type: emptyDir
         sizeLimit: 1Gi
