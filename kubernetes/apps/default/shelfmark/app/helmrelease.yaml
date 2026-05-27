@@ -87,18 +87,12 @@ spec:
         existingClaim: *app
         globalMounts:
           - path: /config
-      books:
+      media:
         type: nfs
         server: nas.internal
         path: /var/nfs/shared/media
         globalMounts:
-          - path: /books
-      downloads:
-        type: nfs
-        server: nas.internal
-        path: /var/nfs/shared/media
-        globalMounts:
-          - path: /downloads
+          - path: /media
       tmp:
         type: emptyDir
         sizeLimit: 1Gi
