@@ -20,5 +20,6 @@ resources:
   - ./radarr/install.yaml
   - ./recyclarr/install.yaml
   - ./seerr/install.yaml
+  - ./shelfmark/install.yaml
   - ./sonarr/install.yaml
   - ./tautulli/install.yaml
