@@ -93,6 +93,12 @@ spec:
         path: /var/nfs/shared/media
         globalMounts:
           - path: /books
+      downloads:
+        type: nfs
+        server: nas.internal
+        path: /var/nfs/shared/media
+        globalMounts:
+          - path: /downloads
       tmp:
         type: emptyDir
         sizeLimit: 1Gi
