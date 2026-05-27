@@ -39,13 +39,6 @@ spec:
               - -b
               - 0.0.0.0:8084
               - shelfmark.main:app
-            env:
-              AUTH_METHOD: none
-              BOOK_LANGUAGE: "en,fr"
-              FLASK_PORT: &port 8084
-            envFrom:
-              - secretRef:
-                  name: shelfmark-secret
             probes:
               liveness: &probes
                 enabled: true
@@ -53,7 +46,7 @@ spec:
                 spec:
                   httpGet:
                     path: /api/health
-                    port: *port
+                    port: &port 8084
                   initialDelaySeconds: 0
                   periodSeconds: 10
                   timeoutSeconds: 1
