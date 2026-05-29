@@ -3,7 +3,7 @@ version: v1alpha1
 machine:
   ca:
     crt: op://HomeOps/talos/MACHINE_CA_CRT
-    {% if ENV.IS_CONTROLLER %}
+    {% if ENV.CONTROLPLANE %}
     key: op://HomeOps/talos/MACHINE_CA_KEY
     {% endif %}
   features:
@@ -16,7 +16,7 @@ machine:
     kubePrism:
       enabled: true
       port: 7445
-    {% if ENV.IS_CONTROLLER %}
+    {% if ENV.CONTROLPLANE %}
     kubernetesTalosAPIAccess:
       allowedKubernetesNamespaces:
         - actions-runner-system
@@ -46,10 +46,12 @@ machine:
         noatime=True
         nolock=True
   install:
-    image: factory.talos.dev/metal-installer/039535a70c3bd1667c355eca78571267704e55c8a24785033d183b8f26e39d82:v1.13.2
+    image: factory.talos.dev/metal-installer/{{ ENV.SCHEMATIC }}:v1.13.2
+    wipe: false
   kernel:
     modules:
       - name: nbd
+      - name: zfs
   kubelet:
     defaultRuntimeSeccompProfileEnabled: true
     disableManifestsDirectory: true
@@ -88,7 +90,7 @@ machine:
 cluster:
   ca:
     crt: op://HomeOps/talos/CLUSTER_CA_CRT
-    {% if ENV.IS_CONTROLLER %}
+    {% if ENV.CONTROLPLANE %}
     key: op://HomeOps/talos/CLUSTER_CA_KEY
     {% endif %}
   clusterName: k8s
@@ -112,7 +114,7 @@ cluster:
       - 10.43.0.0/16
   secret: op://HomeOps/talos/CLUSTER_SECRET
   token: op://HomeOps/talos/CLUSTER_TOKEN
-  {% if ENV.IS_CONTROLLER %}
+  {% if ENV.CONTROLPLANE %}
   aggregatorCA:
     crt: op://HomeOps/talos/CLUSTER_AGGREGATORCA_CRT
     key: op://HomeOps/talos/CLUSTER_AGGREGATORCA_KEY

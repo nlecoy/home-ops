@@ -3,28 +3,18 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: &app shelfmark
-  namespace: &namespace default
+  name: &app snapshot-controller
+  namespace: &namespace kube-system
 spec:
+  targetNamespace: *namespace
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
-  components:
-    - ../../../../components/volsync
-  dependsOn:
-    - name: volsync
-      namespace: volsync-system
   interval: 1h
-  path: ./kubernetes/apps/default/shelfmark/app
-  postBuild:
-    substitute:
-      APP: *app
+  path: ./kubernetes/apps/kube-system/snapshot-controller/app
   prune: true
-  retryInterval: 2m
   sourceRef:
     kind: GitRepository
     name: flux-system
     namespace: flux-system
-  targetNamespace: *namespace
-  timeout: 5m
   wait: true

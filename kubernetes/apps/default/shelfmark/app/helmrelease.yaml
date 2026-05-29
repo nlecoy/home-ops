@@ -78,7 +78,6 @@ spec:
       app:
         hostnames:
           - "{{ .Release.Name}}.nlecoy.fr"
-          - "books.nlecoy.fr"
         parentRefs:
           - name: envoy-internal
             namespace: networking

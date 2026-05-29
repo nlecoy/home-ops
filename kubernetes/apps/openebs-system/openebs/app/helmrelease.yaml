@@ -19,42 +19,88 @@ spec:
     remediation:
       retries: 3
   values:
-    localpv-provisioner:
-      localpv:
-        image:
-          registry: quay.io/
-        basePath: &hostPath /var/mnt/local-hostpath
-      hostpathClass:
-        enabled: true
-        name: openebs-hostpath
-        isDefaultClass: false
-        basePath: *hostPath
-      helperPod:
-        image:
-          registry: quay.io/
-    openebs-crds:
-      csi:
-        volumeSnapshots:
-          enabled: false
-          keep: false
-    zfs-localpv:
+    analytics:
       enabled: false
-    lvm-localpv:
-      enabled: false
-    mayastor:
+    alloy:
       enabled: false
     engines:
       local:
         lvm:
           enabled: false
         zfs:
-          enabled: false
+          enabled: true
       replicated:
         mayastor:
           enabled: false
+    localpv-provisioner:
+      helperPod:
+        image:
+          registry: quay.io/
+      hostpathClass:
+        enabled: true
+        name: openebs-hostpath
+        isDefaultClass: false
+        basePath: &hostPath /var/mnt/local-hostpath
+      localpv:
+        basePath: *hostPath
+        replicas: 1
+        image:
+          registry: quay.io/
+        resources:
+          requests:
+            cpu: 20m
+            memory: 64Mi
+          limits:
+            memory: 128Mi
+      rbac:
+        create: true
+    zfs-localpv:
+      enabled: true
+      zfs:
+        # Talos installs ZFS at a non-standard path
+        bin: /usr/local/sbin/zfs
+      zfsController:
+        replicas: 1
+        resources:
+          requests:
+            cpu: 20m
+            memory: 64Mi
+          limits:
+            memory: 128Mi
+      zfsNode:
+        # /home is read-only on Talos; use a writable path under /var
+        encrKeysDir: /var/local/openebs/keys
+        resources:
+          requests:
+            cpu: 89m
+            memory: 167Mi
+          limits:
+            memory: 167Mi
+        nodeDriverRegistrar:
+          resources:
+            requests:
+              cpu: 10m
+              memory: 32Mi
+            limits:
+              memory: 32Mi
+      resources:
+        requests:
+          cpu: 20m
+          memory: 64Mi
+        limits:
+          memory: 128Mi
     loki:
       enabled: false
-    alloy:
+    lvm-localpv:
+      enabled: false
+    mayastor:
       enabled: false
     minio:
+      enabled: false
+    openebs-crds:
+      csi:
+        volumeSnapshots:
+          enabled: false
+          keep: false
+    preUpgradeHook:
       enabled: false
