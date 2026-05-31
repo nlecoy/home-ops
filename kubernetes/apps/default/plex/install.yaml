@@ -9,11 +9,14 @@ spec:
   dependsOn:
     - name: intel-gpu-resource-driver
       namespace: kube-system
+  components:
+    - ../../../../components/pvc
   interval: 1h
   path: ./kubernetes/apps/default/plex/app
   postBuild:
     substitute:
       APP: *app
+      PVC_CAPACITY: "1Gi"
   prune: true
   retryInterval: 2m
   sourceRef:

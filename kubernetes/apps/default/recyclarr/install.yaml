@@ -12,11 +12,14 @@ spec:
   dependsOn:
     - name: onepassword
       namespace: external-secrets
+  components:
+    - ../../../../components/pvc
   interval: 1h
   path: ./kubernetes/apps/default/recyclarr/app
   postBuild:
     substitute:
       APP: *app
+      PVC_CAPACITY: "1Gi"
   prune: true
   retryInterval: 2m
   sourceRef:

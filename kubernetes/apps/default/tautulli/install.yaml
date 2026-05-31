@@ -6,6 +6,8 @@ metadata:
   name: &app tautulli
   namespace: &namespace default
 spec:
+  components:
+    - ../../../../components/pvc
   interval: 1h
   path: ./kubernetes/apps/default/tautulli/app
   postBuild:
