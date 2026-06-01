@@ -9,8 +9,10 @@ spec:
   dependsOn:
     - name: intel-gpu-resource-driver
       namespace: kube-system
+    - name: volsync
+      namespace: system
   components:
-    - ../../../../components/pvc
+    - ../../../../components/volsync
   interval: 1h
   path: ./kubernetes/apps/default/plex/app
   postBuild:

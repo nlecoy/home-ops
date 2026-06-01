@@ -10,7 +10,10 @@ spec:
     labels:
       app.kubernetes.io/name: *app
   components:
-    - ../../../../components/pvc
+    - ../../../../components/volsync
+  dependsOn:
+    - name: volsync
+      namespace: system
   interval: 30m
   path: ./kubernetes/apps/default/qbittorrent/app
   postBuild:

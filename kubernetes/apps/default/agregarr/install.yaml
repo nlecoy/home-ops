@@ -7,7 +7,10 @@ metadata:
   namespace: &namespace default
 spec:
   components:
-    - ../../../../components/pvc
+    - ../../../../components/volsync
+  dependsOn:
+    - name: volsync
+      namespace: system
   interval: 1h
   path: ./kubernetes/apps/default/agregarr/app
   postBuild:

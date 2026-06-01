@@ -14,8 +14,10 @@ spec:
       namespace: databases
     - name: onepassword
       namespace: external-secrets
+    - name: volsync
+      namespace: system
   components:
-    - ../../../../components/pvc
+    - ../../../../components/volsync
   interval: 1h
   path: ./kubernetes/apps/default/radarr/app
   postBuild:
