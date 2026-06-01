@@ -15,7 +15,7 @@ spec:
     - name: onepassword
       namespace: external-secrets
     - name: volsync
-      namespace: system
+      namespace: volsync-system
   components:
     - ../../../../components/volsync
   interval: 1h

@@ -44,6 +44,13 @@ sync resource:
             "reconcile.fluxcd.io/forceAt=$(date +%s)"
     done
 
+[doc('Snapshot VolSync PVCs')]
+[script]
+snapshot:
+    kubectl get replicationsources --no-headers -A | while read -r ns name _; do
+        kubectl -n "$ns" patch replicationsources "$name" --type merge -p '{"spec":{"trigger":{"manual":"$(date +%s)"}}}'
+    done
+
 [doc('View a secret')]
 view-secret ns secret:
     kubectl view-secret -n {{ ns }} {{ secret }}

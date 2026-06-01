@@ -13,7 +13,7 @@ spec:
     - name: cloudnative-pg-cluster
       namespace: databases
     - name: volsync
-      namespace: system
+      namespace: volsync-system
   components:
     - ../../../../components/volsync
   interval: 1h
