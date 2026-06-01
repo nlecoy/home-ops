@@ -6,22 +6,20 @@ metadata:
   name: &app seerr
   namespace: &namespace default
 spec:
+  components:
+    - ../../../../components/volsync
   dependsOn:
     - name: volsync
       namespace: volsync-system
-  components:
-    - ../../../../components/volsync
   interval: 1h
   path: ./kubernetes/apps/default/seerr/app
   postBuild:
     substitute:
       APP: *app
   prune: true
-  retryInterval: 2m
   sourceRef:
     kind: GitRepository
     name: flux-system
     namespace: flux-system
   targetNamespace: *namespace
-  timeout: 5m
   wait: false
