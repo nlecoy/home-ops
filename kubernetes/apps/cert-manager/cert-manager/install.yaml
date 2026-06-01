@@ -6,6 +6,9 @@ metadata:
   name: cert-manager
   namespace: &namespace cert-manager
 spec:
+  dependsOn:
+    - name: onepassword
+      namespace: external-secrets
   healthChecks:
     - apiVersion: helm.toolkit.fluxcd.io/v2
       kind: HelmRelease

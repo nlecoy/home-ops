@@ -6,6 +6,9 @@ metadata:
   name: external-dns-cloudflare
   namespace: &namespace networking
 spec:
+  dependsOn:
+    - name: onepassword
+      namespace: external-secrets
   interval: 1h
   path: ./kubernetes/apps/networking/external-dns/cloudflare
   prune: true
@@ -22,6 +25,9 @@ metadata:
   name: external-dns-unifi
   namespace: &namespace networking
 spec:
+  dependsOn:
+    - name: onepassword
+      namespace: external-secrets
   interval: 1h
   path: ./kubernetes/apps/networking/external-dns/unifi
   prune: true

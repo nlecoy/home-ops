@@ -6,6 +6,9 @@ metadata:
   name: cloudflared
   namespace: &namespace networking
 spec:
+  dependsOn:
+    - name: onepassword
+      namespace: external-secrets
   interval: 1h
   path: ./kubernetes/apps/networking/cloudflared/app
   postBuild:

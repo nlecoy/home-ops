@@ -29,7 +29,7 @@ spec:
               tag: 18
             envFrom: &envFrom
               - secretRef:
-                  name: radarr-secret
+                  name: bazarr-secret
         containers:
           app:
             image:
