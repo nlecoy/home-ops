@@ -89,6 +89,6 @@ spec:
             namespace: networking
     persistence:
       config:
-        type: emptyDir
+        existingClaim: "{{ .Release.Name }}"
       tmp:
         type: emptyDir

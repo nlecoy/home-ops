@@ -16,6 +16,9 @@ spec:
       namespace: volsync-system
   interval: 30m
   path: ./kubernetes/apps/default/qbittorrent/app
+  postBuild:
+    substitute:
+      APP: *app
   prune: true
   sourceRef:
     kind: GitRepository
