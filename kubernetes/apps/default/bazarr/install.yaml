@@ -15,10 +15,6 @@ spec:
       namespace: volsync-system
   interval: 1h
   path: ./kubernetes/apps/default/bazarr/app
-  postBuild:
-    substitute:
-      APP: *app
-      PVC_CAPACITY: "1Gi"
   prune: true
   retryInterval: 2m
   sourceRef:

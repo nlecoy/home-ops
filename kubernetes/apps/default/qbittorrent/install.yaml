@@ -16,10 +16,6 @@ spec:
       namespace: volsync-system
   interval: 30m
   path: ./kubernetes/apps/default/qbittorrent/app
-  postBuild:
-    substitute:
-      APP: *app
-      PVC_CAPACITY: "1Gi"
   prune: true
   sourceRef:
     kind: GitRepository
