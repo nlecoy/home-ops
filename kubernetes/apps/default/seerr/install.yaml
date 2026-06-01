@@ -6,6 +6,9 @@ metadata:
   name: &app seerr
   namespace: &namespace default
 spec:
+  dependsOn:
+    - name: volsync
+      namespace: volsync-system
   components:
     - ../../../../components/volsync
   interval: 1h
