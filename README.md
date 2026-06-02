@@ -10,11 +10,30 @@ _... automated via [Flux](https://github.com/fluxcd/flux2), [Renovate](https://g
 
 <div align="center">
 
-[![Talos](https://img.shields.io/endpoint?url=https%3A%2F%2Fkromgo.turbo.ac%2Ftalos_version&style=for-the-badge&logo=talos&logoColor=white&color=blue&label=%20)](https://talos.dev)&nbsp;&nbsp;
-[![Kubernetes](https://img.shields.io/endpoint?url=https%3A%2F%2Fkromgo.turbo.ac%2Fkubernetes_version&style=for-the-badge&logo=kubernetes&logoColor=white&color=blue&label=%20)](https://kubernetes.io)&nbsp;&nbsp;
-[![Flux](https://img.shields.io/endpoint?url=https%3A%2F%2Fkromgo.turbo.ac%2Fflux_version&style=for-the-badge&logo=flux&logoColor=white&color=blue&label=%20)](https://fluxcd.io)&nbsp;&nbsp;
-[![Renovate](https://img.shields.io/github/actions/workflow/status/nlecoy/home-ops/renovate.yaml?branch=main&label=&logo=renovatebot&style=for-the-badge&color=blue)](https://github.com/nlecoy/home-ops/actions/workflows/renovate.yaml)
+[![Home-Internet](https://kromgo.nlecoy.fr/badges/buddy_ping)](https://status.nlecoy.fr)&nbsp;&nbsp;
+[![Status-Page](https://kromgo.nlecoy.fr/badges/buddy_status_page)](https://status.nlecoy.fr)&nbsp;&nbsp;
+[![Alertmanager](https://kromgo.nlecoy.fr/badges/buddy_heartbeat)](https://status.nlecoy.fr)
 
+</div>
+
+<div align="center">
+
+[![Talos](https://kromgo.nlecoy.fr/badges/talos_version)](https://talos.dev)&nbsp;&nbsp;
+[![Kubernetes](https://kromgo.nlecoy.fr/badges/kubernetes_version)](https://kubernetes.io)&nbsp;&nbsp;
+[![Flux](https://kromgo.nlecoy.fr/badges/flux_version)](https://fluxcd.io)&nbsp;&nbsp;
+[![Renovate](https://img.shields.io/github/actions/workflow/status/buroa/k8s-gitops/renovate.yaml?branch=main&label&logo=renovate&color=blue)](https://github.com/buroa/k8s-gitops/actions/workflows/renovate.yaml)
+
+</div>
+
+<div align="center">
+
+[![Age](https://kromgo.nlecoy.fr/badges/cluster_birth_age)](https://github.com/home-operations/kromgo)&nbsp;&nbsp;
+[![Uptime](https://kromgo.nlecoy.fr/badges/cluster_uptime_age)](https://github.com/home-operations/kromgo)&nbsp;&nbsp;
+[![Nodes](https://kromgo.nlecoy.fr/badges/cluster_node_count)](https://github.com/home-operations/kromgo)&nbsp;&nbsp;
+[![Pods](https://kromgo.nlecoy.fr/badges/cluster_pod_count)](https://github.com/home-operations/kromgo)&nbsp;&nbsp;
+[![CPU](https://kromgo.nlecoy.fr/badges/cluster_cpu_usage)](https://github.com/home-operations/kromgo)&nbsp;&nbsp;
+[![Memory](https://kromgo.nlecoy.fr/badges/cluster_memory_usage)](https://github.com/home-operations/kromgo)&nbsp;&nbsp;
+[![Alerts](https://kromgo.nlecoy.fr/badges/cluster_alert_count)](https://github.com/home-operations/kromgo)
 
 </div>
 
