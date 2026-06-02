@@ -10,41 +10,22 @@ _... automated via [Flux](https://github.com/fluxcd/flux2), [Renovate](https://g
 
 <div align="center">
 
-[![Home-Internet](https://kromgo.nlecoy.fr/badges/buddy_ping)](https://status.nlecoy.fr)&nbsp;&nbsp;
-[![Status-Page](https://kromgo.nlecoy.fr/badges/buddy_status_page)](https://status.nlecoy.fr)&nbsp;&nbsp;
-[![Alertmanager](https://kromgo.nlecoy.fr/badges/buddy_heartbeat)](https://status.nlecoy.fr)
+![Talos](https://kromgo.nlecoy.fr/badges/talos_version)&nbsp;&nbsp;
+![Kubernetes](https://kromgo.nlecoy.fr/badges/kubernetes_version)&nbsp;&nbsp;
+![Flux](https://kromgo.nlecoy.fr/badges/flux_version)&nbsp;&nbsp;
+![Renovate](https://img.shields.io/github/actions/workflow/status/nlecoy/home-ops/renovate.yaml?branch=main&label&logo=renovate&color=blue)
 
 </div>
 
 <div align="center">
 
-[![Talos](https://kromgo.nlecoy.fr/badges/talos_version)](https://talos.dev)&nbsp;&nbsp;
-[![Kubernetes](https://kromgo.nlecoy.fr/badges/kubernetes_version)](https://kubernetes.io)&nbsp;&nbsp;
-[![Flux](https://kromgo.nlecoy.fr/badges/flux_version)](https://fluxcd.io)&nbsp;&nbsp;
-[![Renovate](https://img.shields.io/github/actions/workflow/status/buroa/k8s-gitops/renovate.yaml?branch=main&label&logo=renovate&color=blue)](https://github.com/buroa/k8s-gitops/actions/workflows/renovate.yaml)
-
-</div>
-
-<div align="center">
-
-[![Age](https://kromgo.nlecoy.fr/badges/cluster_birth_age)](https://github.com/home-operations/kromgo)&nbsp;&nbsp;
-[![Uptime](https://kromgo.nlecoy.fr/badges/cluster_uptime_age)](https://github.com/home-operations/kromgo)&nbsp;&nbsp;
-[![Nodes](https://kromgo.nlecoy.fr/badges/cluster_node_count)](https://github.com/home-operations/kromgo)&nbsp;&nbsp;
-[![Pods](https://kromgo.nlecoy.fr/badges/cluster_pod_count)](https://github.com/home-operations/kromgo)&nbsp;&nbsp;
-[![CPU](https://kromgo.nlecoy.fr/badges/cluster_cpu_usage)](https://github.com/home-operations/kromgo)&nbsp;&nbsp;
-[![Memory](https://kromgo.nlecoy.fr/badges/cluster_memory_usage)](https://github.com/home-operations/kromgo)&nbsp;&nbsp;
-[![Alerts](https://kromgo.nlecoy.fr/badges/cluster_alert_count)](https://github.com/home-operations/kromgo)
-
-</div>
-
-<div align="center">
-
-[![Age-Days](https://img.shields.io/endpoint?url=https%3A%2F%2Fkromgo.nlecoy.fr%2Fcluster_age_days&style=flat-square&label=Age)](https://github.com/kashalls/kromgo)&nbsp;&nbsp;
-[![Uptime-Days](https://img.shields.io/endpoint?url=https%3A%2F%2Fkromgo.nlecoy.fr%2Fcluster_uptime_days&style=flat-square&label=Uptime)](https://github.com/kashalls/kromgo)&nbsp;&nbsp;
-[![Pod-Count](https://img.shields.io/endpoint?url=https%3A%2F%2Fkromgo.nlecoy.fr%2Fcluster_pod_count&style=flat-square&label=Pods)](https://github.com/kashalls/kromgo)&nbsp;&nbsp;
-[![CPU-Usage](https://img.shields.io/endpoint?url=https%3A%2F%2Fkromgo.nlecoy.fr%2Fcluster_cpu_usage&style=flat-square&label=CPU)](https://github.com/kashalls/kromgo)&nbsp;&nbsp;
-[![Memory-Usage](https://img.shields.io/endpoint?url=https%3A%2F%2Fkromgo.nlecoy.fr%2Fcluster_memory_usage&style=flat-square&label=Memory)](https://github.com/kashalls/kromgo)&nbsp;&nbsp;
-[![Alerts](https://img.shields.io/endpoint?url=https%3A%2F%2Fkromgo.nlecoy.fr%2Fcluster_alert_count&style=flat-square&label=Alerts)](https://github.com/kashalls/kromgo)
+![Age](https://kromgo.nlecoy.fr/badges/cluster_birth_age)&nbsp;&nbsp;
+![Uptime](https://kromgo.nlecoy.fr/badges/cluster_uptime_age)&nbsp;&nbsp;
+![Nodes](https://kromgo.nlecoy.fr/badges/cluster_node_count)&nbsp;&nbsp;
+![Pods](https://kromgo.nlecoy.fr/badges/cluster_pod_count)&nbsp;&nbsp;
+![CPU](https://kromgo.nlecoy.fr/badges/cluster_cpu_usage)&nbsp;&nbsp;
+![Memory](https://kromgo.nlecoy.fr/badges/cluster_memory_usage)&nbsp;&nbsp;
+![Alerts](https://img.shields.io/endpoint?url=https%3A%2F%2Fkromgo.nlecoy.fr%2Fcluster_alert_count&style=flat-square&label=Alerts)
 
 </div>
 
