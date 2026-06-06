@@ -72,3 +72,12 @@ This Git repository contains the following directories under [kubernetes](./kube
 | UNAS 2         | 1   | -      | 2x2TB ZFS (mirrored vdevs)     | 4GB | - | NFS + Backup Server     |
 | Express 7              | 1   | -            | -                       | -    | -             | Router            |
 | Flex Mini | 1   | -            | -                               | -    | -             | 1Gb Switch        |
+
+## Networking
+
+- Default: 10.0.1.0/24
+- Trusted: 10.0.10.0/24
+- Servers: 10.0.20.0/24
+- Service: 10.0.30.0/24
+- IoT: 10.0.40.0/24
+- Ipsos: 10.0.100.0/24
