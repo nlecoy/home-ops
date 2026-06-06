@@ -80,4 +80,3 @@ This Git repository contains the following directories under [kubernetes](./kube
 - Servers: 10.0.20.0/24
 - Service: 10.0.30.0/24
 - IoT: 10.0.40.0/24
-- Ipsos: 10.0.100.0/24
