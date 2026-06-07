@@ -11,6 +11,7 @@ resources:
   # Flux-Kustomizations
   - ./agregarr/install.yaml
   - ./bazarr/install.yaml
+  - ./bookboss/install.yaml
   - ./flaresolverr/install.yaml
   - ./immich/install.yaml
   - ./plex/install.yaml
