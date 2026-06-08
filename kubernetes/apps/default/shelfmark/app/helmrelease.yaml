@@ -90,10 +90,11 @@ spec:
         type: nfs
         server: nas.internal
         path: /var/nfs/shared/media
-        globalMounts:
-          - path: /media
-          - path: /books
-          - path: /downloads
+        advancedMounts:
+          shelfmark:
+            shelfmark:
+              - path: /bookdrop
+                subPath: books/bookdrop
       tmp:
         type: emptyDir
         sizeLimit: 1Gi

@@ -106,9 +106,9 @@ spec:
           bookboss:
             app:
               - path: /library/books
-                subPath: Library/Main/Books/bookboss/books
+                subPath: books/books
               - path: /library/bookdrop
-                subPath: Library/Main/Books/bookboss/bookdrop
+                subPath: books/bookdrop
       tmp:
         type: emptyDir
         globalMounts:
