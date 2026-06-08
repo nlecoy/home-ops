@@ -92,7 +92,9 @@ spec:
         path: /var/nfs/shared/media
         advancedMounts:
           shelfmark:
-            shelfmark:
+            app:
+              - path: /downloads
+                subPath: downloads
               - path: /bookdrop
                 subPath: books/bookdrop
       tmp:
