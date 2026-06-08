@@ -93,10 +93,7 @@ spec:
         advancedMounts:
           shelfmark:
             app:
-              - path: /downloads
-                subPath: downloads
-              - path: /bookdrop
-                subPath: books/bookdrop
+              - path: /media
       tmp:
         type: emptyDir
         sizeLimit: 1Gi
