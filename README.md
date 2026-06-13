@@ -25,7 +25,7 @@ _... automated via [Flux](https://github.com/fluxcd/flux2), [Renovate](https://g
 ![Pods](https://kromgo.nlecoy.fr/badges/cluster_pod_count)&nbsp;&nbsp;
 ![CPU](https://kromgo.nlecoy.fr/badges/cluster_cpu_usage)&nbsp;&nbsp;
 ![Memory](https://kromgo.nlecoy.fr/badges/cluster_memory_usage)&nbsp;&nbsp;
-![Alerts](https://img.shields.io/endpoint?url=https%3A%2F%2Fkromgo.nlecoy.fr%2Fcluster_alert_count&style=flat-square&label=Alerts)
+![Alerts](https://kromgo.nlecoy.fr/badges/cluster_alert_count)
 
 </div>
 
