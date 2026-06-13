@@ -30,7 +30,7 @@ spec:
     dashboards:
       enabled: true
     devices: enp+
-    directRoutingDevice: enp171s0
+    directRoutingDevice: enp172s0
     enableIPv4BIGTCP: true
     endpointRoutes:
       enabled: true
