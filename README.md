@@ -69,9 +69,9 @@ This Git repository contains the following directories under [kubernetes](./kube
 | Device                      | Num | OS Disk Size | Data Disk Size                  | Ram  | OS            | Function                |
 |-----------------------------|-----|--------------|---------------------------------|------|---------------|-------------------------|
 | Beelink EQi12   | 1   | 500GB SSD      | 1TB (local) | 32GB | Talos         | Kubernetes              |
-| UNAS 2         | 1   | -      | 2x2TB ZFS (mirrored vdevs)     | 4GB | - | NFS + Backup Server     |
-| Express 7              | 1   | -            | -                       | -    | -             | Router            |
-| Flex Mini | 1   | -            | -                               | -    | -             | 1Gb Switch        |
+| UNAS 2         | 1   | -      | 2x2TB HDD     | 4GB | UniFi OS | NFS + Backup Server     |
+| Express 7              | 1   | -            | -                       | -    | UniFi OS             | Router            |
+| Flex Mini | 1   | -            | -                               | -    | UniFi OS             | 1Gb Switch        |
 
 ## Networking
 
