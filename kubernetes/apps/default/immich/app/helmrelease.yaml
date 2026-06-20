@@ -19,7 +19,7 @@ spec:
       retries: 3
   values:
     controllers:
-      server:
+      immich:
         annotations:
           reloader.stakater.com/auto: "true"
         initContainers:
@@ -98,6 +98,7 @@ spec:
         fsGroupChangePolicy: OnRootMismatch
     service:
       app:
+        controller: immich
         ports:
           http:
             port: &port 2283
@@ -129,7 +130,7 @@ spec:
         type: configMap
         name: immich-initdb
         advancedMounts:
-          server:
+          immich:
             init-db:
               - path: /initdb
       cache:
