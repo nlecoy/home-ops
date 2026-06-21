@@ -8,7 +8,7 @@ spec:
   # renovate: datasource=github-releases depName=VictoriaMetrics/victoriametrics-datasource
   instanceSelector:
     matchLabels:
-      grafana.internal/instance: grafana
+      dashboards: grafana
   datasource:
     access: proxy
     type: victoriametrics-logs-datasource
