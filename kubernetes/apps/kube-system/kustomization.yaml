@@ -12,6 +12,7 @@ resources:
   - ./cilium/install.yaml
   - ./coredns/install.yaml
   - ./descheduler/install.yaml
+  - ./drm-exporter/install.yaml
   - ./intel-gpu-resource-driver/install.yaml
   - ./metrics-server/install.yaml
   - ./reloader/install.yaml
