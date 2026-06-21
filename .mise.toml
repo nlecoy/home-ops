@@ -1,4 +1,5 @@
 [env]
+FLATE_PATH = "{{config_root}}/kubernetes/flux/cluster"
 KUBECONFIG = "{{config_root}}/kubeconfig"
 MINIJINJA_CONFIG_FILE = "{{config_root}}/.minijinja.toml"
 TALOSCONFIG = "{{config_root}}/talosconfig"
@@ -16,4 +17,3 @@ LEFTHOOK_OUTPUT = "false"
 "aqua:kubernetes-sigs/kustomize" = "5.7.0"
 "aqua:kubernetes/kubectl" = "1.33.2"
 "aqua:mikefarah/yq" = "4.53.3"
-"pipx:flux-local" = "8.3.0"

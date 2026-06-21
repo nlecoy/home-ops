@@ -9,5 +9,7 @@ resources:
   # Pre Flux-Kustomizations
   - ./namespace.yaml
   # Flux-Kustomizations
+  - ./downflate/install.yaml
   - ./flux-instance/install.yaml
   - ./flux-operator/install.yaml
+  - ./konflate/install.yaml
