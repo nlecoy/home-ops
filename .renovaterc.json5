@@ -5,6 +5,6 @@
     "github>nlecoy/home-ops//.renovate/autoMerge.json5",
     "github>nlecoy/home-ops//.renovate/groups.json5",
     "github>nlecoy/home-ops//.renovate/labels.json5",
-    ":timezone(Europs/Paris)",
+    ":timezone(Europe/Paris)",
   ],
 }
