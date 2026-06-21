@@ -30,6 +30,6 @@ spec:
           - vlogs.nlecoy.fr
         parentRefs:
           - name: envoy-internal
-            namespace: network
+            namespace: networking
       serviceMonitor:
         enabled: true
