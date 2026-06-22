@@ -12,7 +12,7 @@ resources:
   - ./agregarr/install.yaml
   - ./bazarr/install.yaml
   - ./bookboss/install.yaml
-  - ./flaresolverr/install.yaml
+  # - ./flaresolverr/install.yaml
   - ./immich/install.yaml
   - ./plex/install.yaml
   - ./prowlarr/install.yaml
