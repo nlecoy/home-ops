@@ -8,7 +8,7 @@ LEFTHOOK_OUTPUT = "false"
 
 [tools]
 "uv" = "0.11.23"
-"aqua:casey/just" = "1.53.0"
+"aqua:casey/just" = "1.54.0"
 "aqua:derailed/k9s" = "0.51.0"
 "aqua:fluxcd/flux2" = "2.8.8"
 "aqua:helm/helm" = "4.2.2"
