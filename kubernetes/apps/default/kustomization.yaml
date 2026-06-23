@@ -9,18 +9,14 @@ resources:
   # Pre Flux-Kustomizations
   - ./namespace.yaml
   # Flux-Kustomizations
-  - ./agregarr/install.yaml
   - ./bazarr/install.yaml
   - ./bookboss/install.yaml
-  # - ./flaresolverr/install.yaml
   - ./immich/install.yaml
   - ./plex/install.yaml
   - ./prowlarr/install.yaml
   - ./qbittorrent/install.yaml
-  - ./qui/install.yaml
   - ./radarr/install.yaml
   - ./recyclarr/install.yaml
   - ./seerr/install.yaml
   - ./shelfmark/install.yaml
   - ./sonarr/install.yaml
-  - ./tautulli/install.yaml
