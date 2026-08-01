@@ -3,22 +3,14 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: &app shelfmark
+  name: &app openbooks
   namespace: &namespace default
 spec:
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
-  components:
-    - ../../../../components/volsync
-  dependsOn:
-    - name: volsync
-      namespace: volsync-system
   interval: 1h
-  path: ./kubernetes/apps/default/shelfmark/app
-  postBuild:
-    substitute:
-      APP: *app
+  path: ./kubernetes/apps/default/openbooks/app
   prune: true
   retryInterval: 2m
   sourceRef:
