@@ -12,11 +12,11 @@ resources:
   - ./bazarr/install.yaml
   - ./bookboss/install.yaml
   - ./immich/install.yaml
+  - ./openbooks/install.yaml
   - ./plex/install.yaml
   - ./prowlarr/install.yaml
   - ./qbittorrent/install.yaml
   - ./radarr/install.yaml
   - ./recyclarr/install.yaml
   - ./seerr/install.yaml
-  - ./shelfmark/install.yaml
   - ./sonarr/install.yaml
