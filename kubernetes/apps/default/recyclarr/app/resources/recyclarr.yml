@@ -1,14 +1,10 @@
 ---
-# yaml-language-server: $schema=https://raw.githubusercontent.com/recyclarr/recyclarr/master/schemas/config-schema.json
+# yaml-language-server: $schema=https://schemas.recyclarr.dev/v8/config-schema.json
 sonarr:
   series:
     base_url: http://sonarr.default.svc.cluster.local:8989
     api_key: !env_var SONARR_API_KEY
     delete_old_custom_formats: true
-
-    include:
-      - template: sonarr-v4-quality-profile-bluray-web-1080p-french-multi-vo
-      - template: sonarr-v4-custom-formats-bluray-web-1080p-french-multi-vo
 
     media_management:
       propers_and_repacks: do_not_prefer
@@ -25,19 +21,31 @@ sonarr:
     quality_definition:
       type: series
 
+    quality_profiles:
+      - trash_id: 4c48f506c1116a3a57ae33f12346bd15 # [French MULTi.VO] HD Bluray + WEB (1080p)
+        reset_unmatched_scores:
+          enabled: true
+
+    custom_format_groups:
+      add:
+        - trash_id: 6a554241c0a7121dfa220dcb22066d0f # [Optional] French Audio Version
+          select:
+            - 07a32f77690263bb9fda1842db7e273f # VOSTFR
+            - 84f0acbda9c0c9de783894fb66df25aa # FanSUB
+
     custom_formats:
       # Rank VOSTFR above plain original-audio releases. MULTi keeps priority
       # through the +500 score that french-multi-vo gives Original + French.
       - trash_ids:
           - 07a32f77690263bb9fda1842db7e273f # VOSTFR
         assign_scores_to:
-          - name: FR-MULTi-VO-WEB-1080p
+          - trash_id: 4c48f506c1116a3a57ae33f12346bd15
             score: 100
 
       - trash_ids:
           - 84f0acbda9c0c9de783894fb66df25aa # FanSUB
         assign_scores_to:
-          - name: FR-MULTi-VO-WEB-1080p
+          - trash_id: 4c48f506c1116a3a57ae33f12346bd15
             score: -10000
 
 radarr:
@@ -45,10 +53,6 @@ radarr:
     base_url: http://radarr.default.svc.cluster.local:7878
     api_key: !env_var RADARR_API_KEY
     delete_old_custom_formats: true
-
-    include:
-      - template: radarr-quality-profile-hd-bluray-web-french-multi-vo
-      - template: radarr-custom-formats-hd-bluray-web-french-multi-vo
 
     media_management:
       propers_and_repacks: do_not_prefer
@@ -62,17 +66,27 @@ radarr:
     quality_definition:
       type: movie
 
+    quality_profiles:
+      - trash_id: 2572ce3ea4eef1c19d59e0e20ed1cea7 # [French MULTi.VO] HD Bluray + WEB
+        reset_unmatched_scores:
+          enabled: true
+
+    custom_format_groups:
+      add:
+        - trash_id: 741d323a2bb14939d1f53659ef0d5e68 # [Optional] French Audio Version
+          select:
+            - 9172b2f683f6223e3a1846427b417a3d # VOSTFR
+            - 02e48d30a176c91baf9e15de05e5dc6a # FanSUB
+
     custom_formats:
-      # The radarr french-multi-vo include ships neither format, so both are
-      # added here rather than overridden.
       - trash_ids:
           - 9172b2f683f6223e3a1846427b417a3d # VOSTFR
         assign_scores_to:
-          - name: FR-MULTi-VO-HD
+          - trash_id: 2572ce3ea4eef1c19d59e0e20ed1cea7
             score: 100
 
       - trash_ids:
           - 02e48d30a176c91baf9e15de05e5dc6a # FanSUB
         assign_scores_to:
-          - name: FR-MULTi-VO-HD
+          - trash_id: 2572ce3ea4eef1c19d59e0e20ed1cea7
             score: -10000
