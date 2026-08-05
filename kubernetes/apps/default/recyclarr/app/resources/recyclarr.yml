@@ -22,7 +22,7 @@ sonarr:
       type: series
 
     quality_profiles:
-      - trash_id: 4c48f506c1116a3a57ae33f12346bd15 # [French MULTi.VO] HD Bluray + WEB (1080p)
+      - trash_id: 6fa7364373e8f06206871d9c20a4fb3e # [French MULTi.VO] UHD Bluray + WEB (2160p)
         reset_unmatched_scores:
           enabled: true
 
@@ -39,13 +39,13 @@ sonarr:
       - trash_ids:
           - 07a32f77690263bb9fda1842db7e273f # VOSTFR
         assign_scores_to:
-          - trash_id: 4c48f506c1116a3a57ae33f12346bd15
+          - trash_id: 6fa7364373e8f06206871d9c20a4fb3e
             score: 100
 
       - trash_ids:
           - 84f0acbda9c0c9de783894fb66df25aa # FanSUB
         assign_scores_to:
-          - trash_id: 4c48f506c1116a3a57ae33f12346bd15
+          - trash_id: 6fa7364373e8f06206871d9c20a4fb3e
             score: -10000
 
 radarr:
@@ -67,7 +67,7 @@ radarr:
       type: movie
 
     quality_profiles:
-      - trash_id: 2572ce3ea4eef1c19d59e0e20ed1cea7 # [French MULTi.VO] HD Bluray + WEB
+      - trash_id: 92ead7022d13a7858d54e328e6a2f8f9 # [French MULTi.VO] UHD Bluray + WEB
         reset_unmatched_scores:
           enabled: true
 
@@ -82,11 +82,11 @@ radarr:
       - trash_ids:
           - 9172b2f683f6223e3a1846427b417a3d # VOSTFR
         assign_scores_to:
-          - trash_id: 2572ce3ea4eef1c19d59e0e20ed1cea7
+          - trash_id: 92ead7022d13a7858d54e328e6a2f8f9
             score: 100
 
       - trash_ids:
           - 02e48d30a176c91baf9e15de05e5dc6a # FanSUB
         assign_scores_to:
-          - trash_id: 2572ce3ea4eef1c19d59e0e20ed1cea7
+          - trash_id: 92ead7022d13a7858d54e328e6a2f8f9
             score: -10000
