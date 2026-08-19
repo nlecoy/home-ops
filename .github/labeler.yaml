@@ -14,9 +14,7 @@ area/kubernetes:
       - any-glob-to-any-file: "kubernetes/**/*"
 area/renovate:
   - changed-files:
-      - any-glob-to-any-file:
-          - ".renovate/**/*"
-          - ".renovaterc.json5"
+      - any-glob-to-any-file: ".renovaterc.json5"
 area/scripts:
   - changed-files:
       - any-glob-to-any-file: "scripts/**/*"
