@@ -9,4 +9,12 @@
     "github>nlecoy/home-ops//.renovate/labels.json5",
     ":timezone(Europe/Paris)",
   ],
+  packageRules: [
+    {
+      description: "1Password CLI is not resolvable on GitHub, bump manually",
+      matchManagers: ["mise"],
+      matchDepNames: ["1password-cli"],
+      enabled: false,
+    },
+  ],
 }
