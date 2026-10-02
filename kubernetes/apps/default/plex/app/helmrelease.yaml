@@ -44,7 +44,7 @@ spec:
             securityContext:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: true
-              capabilities: {drop: ["ALL"]}
+              capabilities: { drop: ["ALL"] }
             resources:
               claims:
                 - name: gpu
@@ -83,22 +83,42 @@ spec:
           - name: envoy-external
             namespace: networking
         rules:
-          - # Ref: https://forums.plex.tv/t/external-srt-subtitles-are-not-working-w-reverse-proxy/886540
-            backendRefs:
+          - name: app
+            backendRefs: &backendRefs
               - identifier: app
                 port: *port
             filters:
               - type: RequestHeaderModifier
+                requestHeaderModifier: &pipeline
+                  set:
+                    # Plex closes idle keep-alive connections after 20s unless this is set, so Envoy owns the pool
+                    - name: X-Plex-Http-Pipeline
+                      value: infinite
+          - name: events
+            backendRefs: *backendRefs
+            filters:
+              - type: RequestHeaderModifier
+                requestHeaderModifier: *pipeline
+            matches:
+              - path:
+                  type: PathPrefix
+                  value: /:/eventsource
+              - path:
+                  type: PathPrefix
+                  value: /:/websockets
+          - # Ref: https://forums.plex.tv/t/external-srt-subtitles-are-not-working-w-reverse-proxy/886540
+            name: subtitles
+            backendRefs: *backendRefs
+            filters:
+              - type: RequestHeaderModifier
                 requestHeaderModifier:
+                  <<: *pipeline
                   remove:
                     - Range
             matches:
               - path:
                   type: PathPrefix
                   value: /library/streams
-          - backendRefs:
-              - identifier: app
-                port: *port
     persistence:
       config:
         existingClaim: "{{ .Release.Name }}"
@@ -107,6 +127,6 @@ spec:
         server: nas.internal
         path: /var/nfs/shared/media
         globalMounts:
-            - readOnly: true
+          - readOnly: true
       tmp:
         type: emptyDir
