@@ -13,7 +13,7 @@ spec:
     githubConfigUrl: https://github.com/nlecoy/cihub
     githubConfigSecret: cihub-runner-secret
     minRunners: 0
-    maxRunners: 3
+    maxRunners: 2
     containerMode:
       type: kubernetes
       kubernetesModeWorkVolumeClaim:
@@ -46,3 +46,18 @@ spec:
             env:
               - name: ACTIONS_RUNNER_REQUIRE_JOB_CONTAINER
                 value: "false"
+              - name: ACTIONS_RUNNER_CONTAINER_HOOK_TEMPLATE
+                value: /home/runner/hook-template/hook-template.yaml
+            resources:
+              requests:
+                cpu: 100m
+              limits:
+                cpu: "2"
+            volumeMounts:
+              - name: hook-template
+                mountPath: /home/runner/hook-template
+                readOnly: true
+        volumes:
+          - name: hook-template
+            configMap:
+              name: cihub-runner-hook-template
