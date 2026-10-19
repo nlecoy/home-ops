@@ -29,14 +29,12 @@ _... automated via [Flux](https://github.com/fluxcd/flux2), [Renovate](https://g
 
 </div>
 
-
 ## Overview
 
 This is a repository for my Kubernetes cluster. I try to adhere to Infrastructure as Code (IaC) and GitOps practices using tools like [Kubernetes](https://github.com/kubernetes/kubernetes), [Flux](https://github.com/fluxcd/flux2), [Renovate](https://github.com/renovatebot/renovate), and [GitHub Actions](https://github.com/features/actions).
 
 ### Core Components
 
-- [actions-runner-controller](https://github.com/actions/actions-runner-controller): Self-hosted GitHub runners for CI/CD workflows.
 - [cert-manager](https://github.com/cert-manager/cert-manager): Automated SSL certificate management and provisioning.
 - [cilium](https://github.com/cilium/cilium): High-performance container networking powered by [eBPF](https://ebpf.io).
 - [cloudflared](https://github.com/cloudflare/cloudflared): Secure tunnel providing Cloudflare-protected access to cluster services.
@@ -65,10 +63,9 @@ This Git repository contains the following directories under [kubernetes](./kube
 
 ## Hardware
 
-
-| Device                      | Num | OS Disk Size | Data Disk Size                  | Ram  | OS            | Function                |
-|-----------------------------|-----|--------------|---------------------------------|------|---------------|-------------------------|
-| Beelink EQi12   | 1   | 500GB SSD      | 1TB (local) | 32GB | Talos         | Kubernetes              |
-| UNAS 2         | 1   | -      | 2x2TB HDD     | 4GB | UniFi OS | NFS + Backup Server     |
-| Express 7              | 1   | -            | -                       | -    | UniFi OS             | Router            |
-| Flex Mini | 1   | -            | -                               | -    | UniFi OS             | 1Gb Switch        |
+| Device        | Num | OS Disk Size | Data Disk Size | Ram  | OS       | Function            |
+| ------------- | --- | ------------ | -------------- | ---- | -------- | ------------------- |
+| Beelink EQi12 | 1   | 500GB SSD    | 1TB (local)    | 32GB | Talos    | Kubernetes          |
+| UNAS 2        | 1   | -            | 2x2TB HDD      | 4GB  | UniFi OS | NFS + Backup Server |
+| Express 7     | 1   | -            | -              | -    | UniFi OS | Router              |
+| Flex Mini     | 1   | -            | -              | -    | UniFi OS | 1Gb Switch          |
