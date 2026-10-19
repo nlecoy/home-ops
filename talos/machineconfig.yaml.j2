@@ -183,6 +183,14 @@ cluster:
   {% endif %}
 ---
 apiVersion: v1alpha1
+kind: FilesystemTrimConfig
+interval: 168h0m0s
+---
+apiVersion: v1alpha1
+kind: FilesystemScrubConfig
+interval: 168h0m0s
+---
+apiVersion: v1alpha1
 kind: WatchdogTimerConfig
 device: /dev/watchdog0
 timeout: 5m
