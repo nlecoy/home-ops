@@ -11,13 +11,11 @@
   "editor.stickyScroll.enabled": false,
   "explorer.autoReveal": true,
   "files.associations": {
-    "**/*.json5": "json5",
-    "**/*.just": "just"
+    "**/*.json5": "json5"
   },
   "files.trimTrailingWhitespace": true,
   "material-icon-theme.files.associations": {
     "*.gotmpl": "smarty",
-    "*.just": "just",
     "kubeconfig": "kubernetes",
     "talosconfig": "kubernetes"
   },
@@ -51,9 +49,6 @@
   "yaml.schemaStore.enable": true,
   "yaml.schemas": {
     "kubernetes": "./kubernetes/**/*.yaml"
-  },
-  "[just]": {
-    "editor.defaultFormatter": "nefrob.vscode-just-syntax"
   },
   "[yaml]": {
     "editor.defaultFormatter": "oxc.oxc-vscode"
