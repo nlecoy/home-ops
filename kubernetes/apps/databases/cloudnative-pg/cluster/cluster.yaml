@@ -26,8 +26,6 @@ spec:
       memory: 1Gi
     limits:
       memory: 4Gi
-  monitoring:
-    enablePodMonitor: true
   plugins:
     - name: barman-cloud.cloudnative-pg.io
       isWALArchiver: true
