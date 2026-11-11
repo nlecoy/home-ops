@@ -21,6 +21,11 @@ spec:
     crds:
       create: true
     monitoring:
-      podMonitorEnabled: false
+      podMonitorEnabled: true
       grafanaDashboard:
         create: true
+    resources:
+      requests:
+        cpu: 10m
+      limits:
+        memory: 512Mi
