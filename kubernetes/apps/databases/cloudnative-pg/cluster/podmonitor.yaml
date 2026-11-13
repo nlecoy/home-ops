@@ -1,0 +1,15 @@
+---
+# yaml-language-server: $schema=https://k8s-schemas.home-operations.com/monitoring.coreos.com/podmonitor_v1.json
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  # Distinct from the operator-managed `postgres` PodMonitor, which CNPG deletes
+  # once `enablePodMonitor` is unset
+  name: postgres-metrics
+spec:
+  podMetricsEndpoints:
+    - port: metrics
+  selector:
+    matchLabels:
+      cnpg.io/cluster: postgres
+      cnpg.io/podRole: instance
