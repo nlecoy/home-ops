@@ -7,7 +7,7 @@ metadata:
   annotations:
     cnpg.io/skipEmptyWalArchiveCheck: "enabled"
 spec:
-  imageName: ghcr.io/cloudnative-pg/postgresql:17.12-standard-bookworm
+  imageName: ghcr.io/cloudnative-pg/postgresql:18.7-standard-bookworm
   instances: 1
   primaryUpdateStrategy: unsupervised
   storage:
@@ -31,7 +31,7 @@ spec:
       isWALArchiver: true
       parameters: &parameters
         barmanObjectName: r2
-        serverName: postgres-v1
+        serverName: postgres-v2
   bootstrap:
     recovery:
       source: source
