@@ -27,6 +27,7 @@ spec:
             env:
               TZ: Europe/Paris
               PORT: &port 5580
+              LISTEN_ADDRESS: eth0
               PRIMARY_INTERFACE: net1
             probes:
               liveness: &probes
