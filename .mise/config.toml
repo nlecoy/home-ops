@@ -5,6 +5,7 @@ monorepo_root = true
 FLATE_PATH = '{{config_root}}/kubernetes/flux/cluster'
 KUBECONFIG = "{{config_root}}/kubeconfig"
 MINIJINJA_CONFIG_FILE = "{{config_root}}/.minijinja.toml"
+OP_ACCOUNT = "my.1password.com"
 TALOSCONFIG = "{{config_root}}/talosconfig"
 
 [hooks]
