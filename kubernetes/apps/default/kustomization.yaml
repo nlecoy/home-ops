@@ -10,6 +10,7 @@ resources:
   - ./namespace.yaml
   # Flux-Kustomizations
   - ./bazarr/install.yaml
+  - ./home-assistant/install.yaml
   - ./immich/install.yaml
   - ./openbooks/install.yaml
   - ./plex/install.yaml
