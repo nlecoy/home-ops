@@ -12,6 +12,7 @@ resources:
   - ./bazarr/install.yaml
   - ./home-assistant/install.yaml
   - ./immich/install.yaml
+  - ./matter-server/install.yaml
   - ./openbooks/install.yaml
   - ./plex/install.yaml
   - ./prowlarr/install.yaml
