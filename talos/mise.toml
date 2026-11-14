@@ -39,8 +39,10 @@ CONTROLPLANE="$(mise run //talos:machine-controller "$usage_node")"
 SCHEMATIC="$(mise run //talos:schematic-id)"
 export CONTROLPLANE SCHEMATIC
 machineconfig="$(mise run //:template machineconfig.yaml.j2)"
+networking_patch="$(mise run //:template networking.yaml.j2)"
 node_patch="$(mise run //:template "nodes/${usage_node}.yaml.j2")"
 talosctl machineconfig patch <(printf '%s\n' "$machineconfig") \
+    -p @<(printf '%s\n' "$networking_patch") \
     -p @<(printf '%s\n' "$node_patch")
 '''
 
