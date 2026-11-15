@@ -44,7 +44,7 @@ spec:
                   --override-hostname=immich --override-username=backup)
                 kopia repository connect "${repo[@]}" || kopia repository create "${repo[@]}"
                 # Immich can regenerate thumbnails and transcoded videos.
-                kopia policy set /data --clear-ignore \
+                kopia policy set /data \
                   --add-ignore=/encoded-video --add-ignore=/thumbs \
                   --keep-latest=7 --keep-hourly=0 --keep-daily=14 \
                   --keep-weekly=8 --keep-monthly=12 --keep-annual=0
