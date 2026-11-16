@@ -1,0 +1,30 @@
+---
+# yaml-language-server: $schema=https://k8s-schemas.home-operations.com/monitoring.coreos.com/prometheusrule_v1.json
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: immich-backup
+spec:
+  groups:
+    - name: immich-backup.rules
+      rules:
+        # Daily schedule, with 2h of margin for a slow run
+        - alert: ImmichBackupStale
+          expr: |-
+            time() - kube_cronjob_status_last_successful_time{namespace="default", cronjob="immich-backup"} > 26 * 3600
+          for: 5m
+          annotations:
+            summary: >-
+              Immich off-site backup has not succeeded for {{ $value | humanizeDuration }}
+          labels:
+            severity: critical
+
+        - alert: ImmichBackupAbsent
+          expr: |-
+            absent(kube_cronjob_info{namespace="default", cronjob="immich-backup"})
+          for: 5m
+          annotations:
+            summary: >-
+              Immich off-site backup CronJob has disappeared
+          labels:
+            severity: critical

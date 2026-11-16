@@ -77,3 +77,26 @@ spec:
               Replica {{ $labels.pod }} is failing to replicate
           labels:
             severity: critical
+
+        # Instances can report 0 before they see a backup, so keep the most recent value.
+        # Daily schedule, with 2h of margin for a slow run.
+        - alert: BarmanBackupStale
+          expr: |-
+            time() - max by (namespace) (barman_cloud_cloudnative_pg_io_last_available_backup_timestamp) > 26 * 3600
+          for: 5m
+          annotations:
+            summary: >-
+              No PostgreSQL base backup has succeeded for {{ $value | humanizeDuration }}
+          labels:
+            severity: critical
+
+        - alert: BarmanBackupFailed
+          expr: |-
+            max by (namespace) (barman_cloud_cloudnative_pg_io_last_failed_backup_timestamp)
+              > max by (namespace) (barman_cloud_cloudnative_pg_io_last_available_backup_timestamp)
+          for: 5m
+          annotations:
+            summary: >-
+              The last PostgreSQL base backup has failed
+          labels:
+            severity: critical
