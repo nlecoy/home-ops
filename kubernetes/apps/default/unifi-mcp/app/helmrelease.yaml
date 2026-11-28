@@ -26,7 +26,7 @@ spec:
           app:
             image:
               repository: ghcr.io/sirkirby/unifi-network-mcp
-              tag: 0.50.2@sha256:998a13aca929db477158fd4efb94a6189ec8cc200f2fb391a61e8d888797c2a3
+              tag: 0.50.4@sha256:faf447c22552ff97c25f194b32f74c0c28ca89dc45caa7b2de54c4ad8b2d692f
             env:
               TZ: Europe/Paris
               UNIFI_HOST: unifi.internal
